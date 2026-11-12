@@ -49,6 +49,21 @@ Share the invite only with people you trust. Both sides should use the same mod 
 
 These extra features are currently specific to Forge 1.20.1. The other builds provide the core world-sharing flow. See the [detailed guide](docs/guia-detalhado.md) for connection states, language coverage and troubleshooting.
 
+## Screenshots
+
+These screenshots show the Forge 1.20.1 interface and a multiplayer test.
+
+| Opening a world | Sharing an invite |
+| --- | --- |
+| ![LinceLink button in the pause menu](docs/screenshots/01-host-menu.png) | ![LinceLink host screen](docs/screenshots/02-host-screen.png) |
+| Pause menu | Host screen before sharing |
+| ![Host screen with an invite](docs/screenshots/03-host-invite.png) | ![LinceLink button in the multiplayer menu](docs/screenshots/04-multiplayer-menu.png) |
+| Invite ready to copy | Multiplayer menu |
+| ![Join screen with an invite](docs/screenshots/05-join-screen.png) | ![A guest in the host's world](docs/screenshots/06-player-in-world.png) |
+| Joining with an invite | A guest joins the world |
+| ![Player list showing ping and direct connection](docs/screenshots/07-ping-and-connection.png) | ![Two players together with connection status](docs/screenshots/08-playing-together.png) |
+| Ping and connection status | Playing together |
+
 ## Português
 
 O LinceLink permite partilhar um mundo singleplayer do Minecraft Java com um amigo através de um convite, usando o Tailcat. Os dois jogadores precisam da mesma versão do Minecraft e do build correspondente do LinceLink. Não é necessária uma conta Tailscale.
