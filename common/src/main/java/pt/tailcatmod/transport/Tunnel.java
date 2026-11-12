@@ -14,11 +14,9 @@ public final class Tunnel implements AutoCloseable {
 
     public synchronized CompletableFuture<String> start(Path gameDir, boolean host, String argument, int port) throws IOException {
         if (process != null || ready.isDone()) throw new IllegalStateException("Tunnel already used");
-        String executable = System.getProperty("tailcat.executable");
-        if (executable == null || executable.trim().isEmpty()) {
-            Path local = gameDir.resolve("tailcat").resolve(System.getProperty("os.name").startsWith("Windows") ? "tailcat.exe" : "tailcat");
-            executable = Files.isRegularFile(local) ? local.toAbsolutePath().toString() : "tailcat";
-        }
+        Path installed = TailcatInstaller.findInstalled(gameDir);
+        if (installed == null) throw new IOException("Tailcat não está instalado. Instala-o em " + TailcatInstaller.destination(gameDir));
+        String executable = installed.toString();
         ProcessBuilder builder = host
                 ? new ProcessBuilder(executable, "serve", Integer.toString(port))
                 : new ProcessBuilder(executable, "forward", argument, "0:" + port);

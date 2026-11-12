@@ -12,13 +12,19 @@ Versões intermédias e posteriores a 1.21.1 não estão implementadas. Usa semp
 
 ## Instalação
 
+**Forge 1.20.1, mod 0.1.2+:** basta instalar o JAR. No primeiro arranque, o mod procura Tailcat na pasta da instância e no PATH; se faltar, descarrega a versão oficial v0.7.0 para `tailcat/`. A instalação corre em segundo plano e o ecrã Tailcat mostra o progresso. Não precisas do ZIP nem de instalar Tailcat manualmente nesta versão. É necessária Internet para o primeiro download.
+
+A instalação automática suporta Windows x64/ARM64 e Linux x64/ARM64. Em macOS ou outra arquitetura, instala Tailcat manualmente. O download é verificado com SHA-256 fixo; o executável existente não é atualizado nem substituído. Uma falha de download não impede abrir o Minecraft: o botão Abrir/Conectar volta a tentar. Voltar/Parar durante a instalação cancela a abertura do túnel; o download em segundo plano pode terminar para ficar disponível na próxima tentativa.
+
+**Outros builds e versões anteriores:** segue a instalação manual abaixo.
+
 Nos dois computadores:
 
 1. Instala a versão Minecraft/loader indicada na [matriz de dependências](docs/compatibilidade.md). Fabric precisa da Fabric API indicada; Forge não usa Fabric API.
 2. Copia o JAR do mod correspondente ao loader para a pasta `mods` da instância.
 3. Obtém o **Tailcat v0.7.0** oficial em https://github.com/tailscale/tailcat/releases/tag/v0.7.0 . Extrai o executável e coloca-o em `<pasta da instância>/tailcat/tailcat` (Linux/macOS) ou `<pasta da instância>/tailcat/tailcat.exe` (Windows). Em Unix, torna-o executável com `chmod +x`. Também pode estar no PATH, ou ser indicado por `-Dtailcat.executable=/caminho/absoluto/tailcat` nos argumentos Java.
 
-O executável não está incluído no mod e não é descarregado automaticamente. Não precisas de conta Tailscale. O projeto não é oficial da Tailscale.
+O executável não está incluído nos JARs. Só Forge 1.20.1 a partir do mod 0.1.2 o descarrega automaticamente. Não precisas de conta Tailscale. O projeto não é oficial da Tailscale.
 
 ## Utilização
 
@@ -69,3 +75,7 @@ Com duas contas Minecraft, abrir um mundo, copiar/colar o convite, entrar, mover
 Significa que o executável Tailcat não foi encontrado. Para Forge 1.20.1 existe um pacote experimental Windows x64 na release v0.1.1, com `mods/` e `tailcat/` prontos para extrair para a pasta da instância. Remove o JAR anterior antes de instalar o novo. O executável oficial v0.7.0 e a licença BSD original estão incluídos no ZIP. O JAR isolado continua a precisar de Tailcat instalado separadamente.
 
 A versão 0.1.1 indica o caminho exato esperado quando não consegue iniciar o executável. Isto não diagnostica outros erros de arranque do Minecraft; para esses é necessário `logs/latest.log`.
+
+### Testar o instalador (integração explícita)
+
+Compila o núcleo e `common/src/test/java/pt/tailcatmod/transport/InstallerSmoke.java` com JDK 8 e executa `pt.tailcatmod.transport.InstallerSmoke /caminho/tailcat_0.7.0_windows_amd64.zip`. Este teste usa Internet para instalar e executar a release Linux oficial numa pasta temporária, valida extração Windows, SHA-256, rejeição de caminhos maliciosos, pedidos simultâneos, reutilização e retry. O ZIP Windows usado no teste deve ser o oficial v0.7.0.

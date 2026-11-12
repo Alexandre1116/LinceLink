@@ -19,6 +19,8 @@ final class TailcatScreen extends Screen {
     private String status = "";
     private Button action;
     private boolean busy;
+    private int request;
+    private boolean installing;
     TailcatScreen(Screen parent, boolean host) {
         super(Component.literal(host ? "Abrir para Tailcat" : "Conectar com Tailcat"));
         this.parent = parent; this.host = host;
@@ -37,11 +39,27 @@ final class TailcatScreen extends Screen {
             else input.setValue(minecraft.keyboardHandler.getClipboard());
         }).bounds(x + 155, y + 28, 145, 20).build());
         addRenderableWidget(Button.builder(Component.literal("Parar Tailcat"), b -> {
-            TailcatMod.stop(); busy = false; input.setValue(""); status = "Ligação Tailcat terminada."; action.active = true;
+            request++; installing = false; TailcatMod.stop(); busy = false; input.setValue(""); status = "Ligação Tailcat terminada."; action.active = true;
         }).bounds(x, y + 56, 300, 20).build());
         addRenderableWidget(Button.builder(Component.literal("Voltar"), b -> onClose()).bounds(x, y + 84, 300, 20).build());
     }
     private void start() {
+        if (busy) return;
+        try {
+            if (!host) Invite.parse(input.getValue(), SharedConstants.getCurrentVersion().getName());
+        } catch (Exception e) { status = "Falha: " + e.getMessage(); return; }
+        busy = true; installing = true; action.active = false;
+        status = "A preparar Tailcat…";
+        int token = ++request;
+        TailcatInstaller.ensure(minecraft.gameDirectory.toPath()).whenComplete((path, error) -> minecraft.execute(() -> {
+            if (request != token) return;
+            installing = false;
+            if (error != null) {
+                busy = false; action.active = true; status = "Falha: " + error.getMessage();
+            } else openTunnel();
+        }));
+    }
+    private void openTunnel() {
         try {
             String argument;
             int port;
@@ -82,10 +100,11 @@ final class TailcatScreen extends Screen {
     @Override public void render(GuiGraphics context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
         context.drawCenteredString(font, title, width / 2, height / 2 - 70, 0xFFFFFF);
-        context.drawWordWrap(font, Component.literal(status), width / 2 - 150, height / 2 + 72, 300, 0xFFFFFF);
+        context.drawWordWrap(font, Component.literal(installing || status.isEmpty() && TailcatMod.invite == null ? TailcatInstaller.status() : status), width / 2 - 150, height / 2 + 72, 300, 0xFFFFFF);
     }
     @Override public void onClose() {
-        if (busy && !host) { TailcatMod.stop(); busy = false; }
+        if (installing) { request++; installing = false; busy = false; }
+        else if (busy && !host) { TailcatMod.stop(); busy = false; }
         minecraft.setScreen(parent);
     }
 }

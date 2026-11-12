@@ -25,3 +25,7 @@ A compilação não prova que os botões aparecem corretamente nem que o login M
 9. Redimensionar a janela e confirmar botões visíveis; repetir em Windows, Linux e macOS com executáveis correspondentes.
 
 Registar versão/loader, sistema operativo, resultado e logs sem o convite secreto antes de promover um build a estável.
+
+## Forge 1.20.1 / mod 0.1.2
+
+Instalador automático em background no primeiro tick do cliente. SHA-256 fixo da release oficial v0.7.0; sem executar scripts de instalação. Build Forge e reobfJar verificados. Teste de integração do instalador em JDK 8: download Linux real, validação do hash, extração, permissão de execução, execução `--version`, reutilização, retry depois de falha, pedidos simultâneos; extração e hash do ZIP Windows oficial; rejeição de zip traversal e hash errado. Não foi executado o binário Windows nem o cliente gráfico Minecraft.

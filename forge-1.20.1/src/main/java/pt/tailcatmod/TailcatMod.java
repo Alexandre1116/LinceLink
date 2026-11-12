@@ -11,6 +11,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import pt.tailcatmod.transport.Tunnel;
+import pt.tailcatmod.transport.TailcatInstaller;
 
 @Mod("tailcatmod")
 public final class TailcatMod {
@@ -24,6 +25,7 @@ public final class TailcatMod {
     public TailcatMod() { Runtime.getRuntime().addShutdownHook(new Thread(TailcatMod::stop)); }
     @Mod.EventBusSubscriber(modid = "tailcatmod", value = Dist.CLIENT)
     public static class Events {
+        private static boolean installationStarted;
         @SubscribeEvent public static void screen(ScreenEvent.Init.Post event) {
             var client = Minecraft.getInstance();
             var screen = event.getScreen();
@@ -36,6 +38,10 @@ public final class TailcatMod {
         @SubscribeEvent public static void tick(TickEvent.ClientTickEvent event) {
             if (event.phase != TickEvent.Phase.END) return;
             var client = Minecraft.getInstance();
+            if (!installationStarted) {
+                installationStarted = true;
+                TailcatInstaller.ensure(client.gameDirectory.toPath());
+            }
             if (tunnel == null) return;
             if (hosting && client.getSingleplayerServer() == null) stop();
             else if (!hosting) {
