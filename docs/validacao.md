@@ -33,3 +33,9 @@ Instalador automático em background no primeiro tick do cliente. SHA-256 fixo d
 ## Forge 1.20.1 / mod 0.1.3
 
 Adicionado pack.mcmeta na raiz do JAR, com pack_format 15 conforme o MDK oficial Forge 1.20.1. Corrige a ausência de ResourcePackInfo que causava o aviso ao carregar o mod. Verificado build/reobfJar e conteúdo do JAR; o arranque no cliente gráfico continua por validar. O utilizador confirmou abertura do túnel e partilha do convite em 0.1.2; isso não confirma ainda a entrada do convidado.
+
+## Forge 1.20.1 / mod 0.1.4
+
+Ping numérico na lista Tab, baseado em PlayerInfo.getLatency(). Usa os eventos de renderização da lista vanilla para acrescentar temporariamente o valor ao nome e permitir que o Minecraft calcule a largura das colunas. Restaura os nomes no final da lista/HUD ou ao desligar; preserva alterações de outros listeners. Não envia pacotes nem faz medições externas.
+
+Build/reobfJar concluídos. JAR verificado: classes do overlay e instalador, versão e pack.mcmeta. Falta teste visual no cliente Minecraft: dois jogadores, nomes/equipas personalizados, espectadores, scoreboard, reconexão e lista com várias colunas. Confirmar que os valores não se acumulam nos nomes e desaparecem fora do Tab.

@@ -38,6 +38,12 @@ O convite é uma única string `tailcat-mc:1:<versão Minecraft>:<endereço tc�
 
 O convite dá acesso ao servidor a quem o receber: partilha-o apenas com os jogadores convidados. Cada nova sessão Tailcat cria um novo endereço. Só a porta do mundo é publicada pelo Tailcat. O cliente escuta em loopback (`127.0.0.1`).
 
+## Ping na lista Tab
+
+No build Forge 1.20.1 a partir do mod 0.1.4, mantém Tab premido para ver o ping de cada jogador junto ao nome, em milissegundos: `Nome [42 ms]`. Os valores usam a latência comunicada pelo servidor ao Minecraft, incluindo o percurso pelo túnel quando ligado através de Tailcat. A atualização segue os dados recebidos do servidor; não é uma medição contínua independente. Um valor desconhecido aparece como `-- ms`.
+
+O texto é verde abaixo de 150 ms, amarelo abaixo de 300 ms e vermelho a partir de 300 ms. Mantém as barras originais, os nomes personalizados, a formatação das equipas e a lista vanilla. A funcionalidade também funciona em servidores normais; só o cliente que quer ver os números precisa deste build.
+
 ## Compilar
 
 Os builds modernos usam Gradle 8.10.2 e JDK 21. Forge 1.16.5 também precisa de JDK 8 instalado; Forge 1.18.2/1.20.1 precisam de JDK 17. O Gradle deteta as instalações normais e as variáveis `JAVA_HOME_8_X64`, `JAVA_HOME_17_X64` e `JAVA_HOME_21_X64`. Também podes indicar os caminhos com `-Porg.gradle.java.installations.paths=/caminho/jdk8,/caminho/jdk17`.
