@@ -77,6 +77,7 @@ final class TailcatScreen extends Screen {
             TailcatMod.stop();
             Tunnel session = new Tunnel();
             TailcatMod.tunnel = session; TailcatMod.hosting = host;
+            if (host) RouteNetwork.startHost(session);
             busy = true; action.active = false; status = "A iniciar Tailcat…";
             session.start(minecraft.gameDirectory.toPath(), host, argument, port).whenComplete((value, error) -> minecraft.execute(() -> {
                 if (TailcatMod.tunnel != session) return;

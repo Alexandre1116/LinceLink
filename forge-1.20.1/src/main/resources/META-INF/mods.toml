@@ -3,7 +3,7 @@ loaderVersion="[47,)"
 license="MIT"
 [[mods]]
 modId="tailcatmod"
-version="0.1.4"
+version="0.1.5"
 displayName="Tailcat Multiplayer"
 description='''Partilha mundos singleplayer através do Tailcat.'''
 displayTest="IGNORE_ALL_VERSION"

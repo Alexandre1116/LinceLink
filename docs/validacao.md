@@ -39,3 +39,15 @@ Adicionado pack.mcmeta na raiz do JAR, com pack_format 15 conforme o MDK oficial
 Ping numérico na lista Tab, baseado em PlayerInfo.getLatency(). Usa os eventos de renderização da lista vanilla para acrescentar temporariamente o valor ao nome e permitir que o Minecraft calcule a largura das colunas. Restaura os nomes no final da lista/HUD ou ao desligar; preserva alterações de outros listeners. Não envia pacotes nem faz medições externas.
 
 Build/reobfJar concluídos. JAR verificado: classes do overlay e instalador, versão e pack.mcmeta. Falta teste visual no cliente Minecraft: dois jogadores, nomes/equipas personalizados, espectadores, scoreboard, reconexão e lista com várias colunas. Confirmar que os valores não se acumulam nos nomes e desaparecem fora do Tab.
+
+## Forge 1.20.1 / mod 0.1.5
+
+Estado Direta/DERP ao lado do ping, por jogador. Usa TAILCAT_STATUS_LOOP=1 do servidor Tailcat v0.7.0 e uma identidade temporária por convidado. Canal Forge opcional: cliente comunica chave pública; anfitrião associa ao UUID do remetente e distribui apenas UUID/enum. Estado indisponível ou expirado aparece como ?. O anfitrião aparece como Local.
+
+Validação executada: cinco testes de classificação de estados, incluindo múltiplos peers, endpoint direto com relay configurado, relay sem código regional, dados desconhecidos/inválidos, expiração, remoção e distinção de peer relay. Integração com dois processos Tailcat reais e stream TCP: rota DIRECT e rota DERP com TS_DEBUG_ALWAYS_USE_DERP=true; ambos associaram corretamente a chave do convidado ao estado do anfitrião. Smoke TCP original passou em Java 8 depois da criação de identidades temporárias. Build/reobfJar e testes Gradle passaram.
+
+O teste forçado revelou que o mapa DERP usado pode omitir códigos regionais: Relay fica vazio mesmo em ligação DERP real. A classificação exige tráfego ativo confirmado no motor/magicsock e ausência de endpoint direto/peer relay; não usa o campo Relay isoladamente. Baseado em populatePeerStatus de magicsock na dependência Tailscale fixada pelo Tailcat v0.7.0.
+
+Pendente no cliente Minecraft: canal Forge entre dois computadores, apresentação no Tab, associação de vários convidados, mudança de DERP para direta, atualização de estado, saída/reentrada, compatibilidade com pares antigos. O transporte real foi testado, mas a interface e a negociação do canal dentro do jogo ainda não.
+
+Para repetir a integração explicitamente, compilar Tunnel/Installer, PeerRoutes e src/test/java/pt/tailcatmod/RouteSmoke.java com JDK 17 e Gson do classpath Minecraft. Executar `pt.tailcatmod.RouteSmoke DIRECT` com `-Dtailcat.executable=/caminho/tailcat`. Repetir `pt.tailcatmod.RouteSmoke DERP` com a variável de ambiente `TS_DEBUG_ALWAYS_USE_DERP=true`. Não são testes automáticos em cada CI porque usam Internet e relays públicos.

@@ -20,9 +20,10 @@ public final class TailcatMod {
     static boolean hosting, joined;
     static void stop() {
         if (tunnel != null) tunnel.close();
+        RouteNetwork.reset();
         tunnel = null; invite = null; hosting = false; joined = false;
     }
-    public TailcatMod() { Runtime.getRuntime().addShutdownHook(new Thread(TailcatMod::stop)); }
+    public TailcatMod() { RouteNetwork.register(); Runtime.getRuntime().addShutdownHook(new Thread(TailcatMod::stop)); }
     @Mod.EventBusSubscriber(modid = "tailcatmod", value = Dist.CLIENT)
     public static class Events {
         private static boolean installationStarted;
@@ -42,6 +43,7 @@ public final class TailcatMod {
                 installationStarted = true;
                 TailcatInstaller.ensure(client.gameDirectory.toPath());
             }
+            RouteNetwork.clientTick();
             if (tunnel == null) return;
             if (hosting && client.getSingleplayerServer() == null) stop();
             else if (!hosting) {

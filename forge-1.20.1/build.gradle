@@ -1,5 +1,5 @@
 plugins { id 'net.minecraftforge.gradle' version '6.0.54' }
-version = '0.1.4'
+version = '0.1.5'
 group = 'pt.tailcatmod'
 base { archivesName = 'tailcat-forge-1.20.1' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -13,3 +13,5 @@ tasks.withType(JavaCompile).configureEach { options.release = 17 }
 jar.finalizedBy('reobfJar')
 
 tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+
+dependencies { testImplementation 'junit:junit:4.13.2' }

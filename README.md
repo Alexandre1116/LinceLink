@@ -44,6 +44,20 @@ No build Forge 1.20.1 a partir do mod 0.1.4, mantém Tab premido para ver o ping
 
 O texto é verde abaixo de 150 ms, amarelo abaixo de 300 ms e vermelho a partir de 300 ms. Mantém as barras originais, os nomes personalizados, a formatação das equipas e a lista vanilla. A funcionalidade também funciona em servidores normais; só o cliente que quer ver os números precisa deste build.
 
+## Direta ou DERP no Tab
+
+No Forge 1.20.1 / mod 0.1.5, a lista mostra `Nome [42 ms] [Direta]` ou `Nome [90 ms] [DERP]`. **O anfitrião e os convidados devem instalar 0.1.5.** O estado é recolhido no anfitrião e enviado aos clientes do mod; não é deduzido do ping nem de um processo `tailcat ping` separado.
+
+- `Direta`: o estado do túnel indica um endpoint UDP direto.
+- `DERP`: o peer tem tráfego ativo confirmado no motor WireGuard, sem percurso direto exclusivo nem peer relay. Pode aparecer no arranque e durante mudanças de percurso.
+- `Local`: o jogador é o dono do mundo singleplayer.
+- `Sem Tailcat`: o cliente comunica que não está a usar um túnel gerido por este mod.
+- `?`: ainda não existe associação/estado válido, a amostra expirou ou a outra versão não partilha estes dados. Dados desconhecidos não são apresentados como ligação direta ou DERP.
+
+O Tailcat fornece amostras aproximadamente a cada cinco segundos. O mod distribui os estados uma vez por segundo e expira amostras com mais de 15 segundos. Cada convidado usa uma identidade Tailcat temporária por sessão; comunica apenas a chave pública ao anfitrião para a associação ao jogador. Os restantes clientes recebem apenas UUIDs e estados, sem endereços IP nem chaves. A identidade comunicada pelo cliente serve a apresentação do estado; não é uma nova forma de autenticação de jogadores.
+
+Os pares sem o canal de estados continuam a poder ligar, mas os dados de percurso podem aparecer como `?`. Servidores normais sem este mod não fornecem os estados dos restantes jogadores. Esta funcionalidade é específica do build Forge 1.20.1 por agora.
+
 ## Compilar
 
 Os builds modernos usam Gradle 8.10.2 e JDK 21. Forge 1.16.5 também precisa de JDK 8 instalado; Forge 1.18.2/1.20.1 precisam de JDK 17. O Gradle deteta as instalações normais e as variáveis `JAVA_HOME_8_X64`, `JAVA_HOME_17_X64` e `JAVA_HOME_21_X64`. Também podes indicar os caminhos com `-Porg.gradle.java.installations.paths=/caminho/jdk8,/caminho/jdk17`.
