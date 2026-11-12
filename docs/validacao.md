@@ -29,3 +29,7 @@ Registar versão/loader, sistema operativo, resultado e logs sem o convite secre
 ## Forge 1.20.1 / mod 0.1.2
 
 Instalador automático em background no primeiro tick do cliente. SHA-256 fixo da release oficial v0.7.0; sem executar scripts de instalação. Build Forge e reobfJar verificados. Teste de integração do instalador em JDK 8: download Linux real, validação do hash, extração, permissão de execução, execução `--version`, reutilização, retry depois de falha, pedidos simultâneos; extração e hash do ZIP Windows oficial; rejeição de zip traversal e hash errado. Não foi executado o binário Windows nem o cliente gráfico Minecraft.
+
+## Forge 1.20.1 / mod 0.1.3
+
+Adicionado pack.mcmeta na raiz do JAR, com pack_format 15 conforme o MDK oficial Forge 1.20.1. Corrige a ausência de ResourcePackInfo que causava o aviso ao carregar o mod. Verificado build/reobfJar e conteúdo do JAR; o arranque no cliente gráfico continua por validar. O utilizador confirmou abertura do túnel e partilha do convite em 0.1.2; isso não confirma ainda a entrada do convidado.
