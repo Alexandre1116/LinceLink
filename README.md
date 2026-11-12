@@ -67,3 +67,5 @@ Build instructions, troubleshooting and transport details are in the [detailed g
 ## License and acknowledgements
 
 LinceLink is open source under the [MIT License](LICENSE). It uses [Tailcat](https://github.com/tailscale/tailcat) as its transport and is not an official Tailscale project. Minecraft is a trademark of Mojang Studios; this project is not affiliated with Mojang or Microsoft.
+
+Special thanks to [LukMine2008](https://github.com/LukMine2008) for being part of the testing team and helping test LinceLink.
