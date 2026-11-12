@@ -20,13 +20,13 @@ LinceLink is an experimental client mod that uses [Tailcat](https://github.com/t
 
 ## Supported versions
 
-| Minecraft Java | Forge | Fabric | Java |
-| --- | --- | --- | --- |
-| 1.12.2 | ✓ | — | 8 |
-| 1.16.5 | ✓ | ✓ | 8 |
-| 1.18.2 | ✓ | ✓ | 17 |
-| 1.20.1 | ✓ | ✓ | 17 |
-| 1.21.1 | ✓ | ✓ | 21 |
+| Minecraft Java | Forge | Fabric | NeoForge | Java |
+| --- | --- | --- | --- | --- |
+| 1.12.2 | ✓ | — | — | 8 |
+| 1.16.5 | ✓ | ✓ | — | 8 |
+| 1.18.2 | ✓ | ✓ | — | 17 |
+| 1.20.1 | ✓ | ✓ | Coming soon | 17 |
+| 1.21.1 | ✓ | ✓ | Coming soon | 21 |
 
 Choose the JAR for your exact Minecraft version and loader; there is no universal JAR. Fabric builds also require [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api). See the [compatibility matrix](docs/compatibilidade.md) for loader and dependency versions. Other Minecraft versions are not currently supported.
 
