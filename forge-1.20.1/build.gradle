@@ -1,7 +1,7 @@
 plugins { id 'net.minecraftforge.gradle' version '6.0.54' }
-version = '0.1.5'
+version = '0.1.6'
 group = 'pt.tailcatmod'
-base { archivesName = 'tailcat-forge-1.20.1' }
+base { archivesName = 'lincelink-forge-1.20.1' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 minecraft { mappings channel: 'official', version: '1.20.1'; reobf = true }
 repositories { mavenCentral() }
@@ -15,3 +15,8 @@ jar.finalizedBy('reobfJar')
 tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
 
 dependencies { testImplementation 'junit:junit:4.13.2' }
+
+processResources {
+    from('../branding') { include 'lincelink.png' }
+    from('../branding') { include 'lincelink.png'; into 'assets/tailcatmod/textures/gui' }
+}

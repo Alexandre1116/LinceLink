@@ -3,9 +3,10 @@ loaderVersion="[52,)"
 license="MIT"
 [[mods]]
 modId="tailcatmod"
-version="0.1.0"
-displayName="Tailcat Multiplayer"
-description='''Partilha mundos singleplayer através do Tailcat.'''
+version="0.1.6"
+displayName="LinceLink"
+logoFile="lincelink.png"
+description='''Minecraft Java · LinceLink · P2P / DERP'''
 displayTest="IGNORE_ALL_VERSION"
 [[dependencies.tailcatmod]]
 modId="forge"

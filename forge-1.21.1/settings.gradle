@@ -1,2 +1,2 @@
 pluginManagement { repositories { gradlePluginPortal(); maven { url = 'https://maven.minecraftforge.net/' } } }
-rootProject.name = 'tailcat-forge-1.21.1'
+rootProject.name = 'lincelink-forge-1.21.1'

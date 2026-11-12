@@ -1,7 +1,7 @@
 plugins { id 'fabric-loom' }
-version = '0.1.0'
+version = '0.1.6'
 group = 'pt.tailcatmod'
-base { archivesName = 'tailcat-fabric-1.20.1' }
+base { archivesName = 'lincelink-fabric-1.20.1' }
 repositories { mavenCentral() }
 dependencies {
  minecraft 'com.mojang:minecraft:1.20.1'
@@ -13,3 +13,8 @@ java { toolchain.languageVersion = JavaLanguageVersion.of(21) }
 sourceSets.main.java.srcDir '../common/src/main/java'
 
 tasks.withType(JavaCompile).configureEach { options.release = 17 }
+
+processResources {
+    from('../branding') { include 'lincelink.png' }
+    from('../branding') { include 'lincelink.png'; into 'assets/tailcatmod/textures/gui' }
+}

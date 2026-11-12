@@ -32,8 +32,8 @@ public final class TailcatMod {
             var screen = event.getScreen();
             if ((screen instanceof PauseScreen && client.hasSingleplayerServer()) || screen instanceof JoinMultiplayerScreen) {
                 boolean host = screen instanceof PauseScreen;
-                event.addListener(Button.builder(Component.literal(host ? "Abrir para Tailcat" : "Conectar com Tailcat"),
-                    button -> client.setScreen(new TailcatScreen(screen, host))).bounds(8, 8, 180, 20).build());
+                event.addListener(Button.builder(UiText.title(host),
+                    button -> client.setScreen(new TailcatScreen(screen, host))).bounds(8, 8, 220, 20).build());
             }
         }
         @SubscribeEvent public static void tick(TickEvent.ClientTickEvent event) {

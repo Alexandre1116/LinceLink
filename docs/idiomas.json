@@ -1,0 +1,1048 @@
+{
+  "minecraft": "1.20.1",
+  "asset_index": "https://piston-meta.mojang.com/v1/packages/2b3aa959237269caa09ac97fc3f7eae651315696/5.json",
+  "language_count": 145,
+  "keys": [
+    "addServer.enterIp",
+    "chat.copy",
+    "chat.copy.click",
+    "commands.publish.started",
+    "connect.connecting",
+    "connect.failed",
+    "disconnect.timeout",
+    "gui.back",
+    "gui.done",
+    "gui.no",
+    "lanServer.port.unavailable",
+    "lanServer.start",
+    "mco.download.downloading",
+    "mco.download.extracting",
+    "mco.download.failed",
+    "mco.download.preparing",
+    "mco.errorMessage.generic",
+    "menu.disconnect",
+    "menu.shareToLan",
+    "menu.singleplayer",
+    "pack.source.local",
+    "selectServer.direct",
+    "selectServer.select",
+    "selectWorld.versionUnknown"
+  ],
+  "languages": {
+    "af_za": {
+      "name": "Afrikaans",
+      "region": "Suid-Afrika",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ar_sa": {
+      "name": "العربية",
+      "region": "العالم العربي",
+      "bidirectional": true,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ast_es": {
+      "name": "Asturianu",
+      "region": "Asturies",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "az_az": {
+      "name": "Azərbaycanca",
+      "region": "Azərbaycan",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ba_ru": {
+      "name": "Башҡортса",
+      "region": "Башҡортостан, Рәсәй",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "bar": {
+      "name": "Boarisch",
+      "region": "Bayern",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "be_by": {
+      "name": "Беларуская",
+      "region": "Беларусь",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "be_latn": {
+      "name": "Biełaruskaja",
+      "region": "Biełaruś",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "bg_bg": {
+      "name": "Български",
+      "region": "България",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "br_fr": {
+      "name": "Brezhoneg",
+      "region": "Breizh",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "brb": {
+      "name": "Braobans",
+      "region": "Braobant",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "bs_ba": {
+      "name": "Bosanski",
+      "region": "Bosna i Hercegovina",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ca_es": {
+      "name": "Català",
+      "region": "Catalunya",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "cbk_zam": {
+      "name": "Chavacano de Zamboanga",
+      "region": "Filipinas",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "cs_cz": {
+      "name": "Čeština",
+      "region": "Česko",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "cv_cu": {
+      "name": "Чӑвашла",
+      "region": "Чӑваш Ен, Раҫҫей",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "cy_gb": {
+      "name": "Cymraeg",
+      "region": "Cymru",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "da_dk": {
+      "name": "Dansk",
+      "region": "Danmark",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "de_at": {
+      "name": "Deitsch",
+      "region": "Österreich",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "de_ch": {
+      "name": "Schwiizerdütsch",
+      "region": "Schwiiz",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "de_de": {
+      "name": "Deutsch",
+      "region": "Deutschland",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "el_gr": {
+      "name": "Ελληνικά",
+      "region": "Ελλάδα",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "en_au": {
+      "name": "English",
+      "region": "Australia",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "en_ca": {
+      "name": "English",
+      "region": "Canada",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "en_gb": {
+      "name": "English",
+      "region": "United Kingdom",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "en_nz": {
+      "name": "English",
+      "region": "New Zealand",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "en_pt": {
+      "name": "Pirate Speak",
+      "region": "The Seven Seas",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "en_ud": {
+      "name": "ɥsᴉꞁᵷuƎ",
+      "region": "uʍoᗡ ǝpᴉsd∩",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "en_us": {
+      "name": "English",
+      "region": "US",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "enp": {
+      "name": "Anglish",
+      "region": "Oned Riches",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "enws": {
+      "name": "Shakespearean English",
+      "region": "Kingdom of England",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "eo_uy": {
+      "name": "Esperanto",
+      "region": "Esperantujo",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "es_ar": {
+      "name": "Español",
+      "region": "Argentina",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "es_cl": {
+      "name": "Español",
+      "region": "Chile",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "es_ec": {
+      "name": "Español",
+      "region": "Ecuador",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "es_es": {
+      "name": "Español",
+      "region": "España",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "es_mx": {
+      "name": "Español",
+      "region": "México",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "es_uy": {
+      "name": "Español",
+      "region": "Uruguay",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "es_ve": {
+      "name": "Español",
+      "region": "Venezuela",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "esan": {
+      "name": "Andalûh",
+      "region": "Andaluçía",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "et_ee": {
+      "name": "Eesti keel",
+      "region": "Eesti",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "eu_es": {
+      "name": "Euskara",
+      "region": "Euskal Herria",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "fa_ir": {
+      "name": "فارسی",
+      "region": "ايران",
+      "bidirectional": true,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "fi_fi": {
+      "name": "Suomi",
+      "region": "Suomi",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "fil_ph": {
+      "name": "Filipino",
+      "region": "Pilipinas",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "fo_fo": {
+      "name": "Føroyskt",
+      "region": "Føroyar",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "fr_ca": {
+      "name": "Français",
+      "region": "Canada",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "fr_ch": {
+      "name": "Français",
+      "region": "Suisse",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "fr_fr": {
+      "name": "Français",
+      "region": "France",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "fra_de": {
+      "name": "Fränggisch",
+      "region": "Franggn",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "fur_it": {
+      "name": "Furlan",
+      "region": "Friûl",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "fy_nl": {
+      "name": "Frysk",
+      "region": "Fryslân",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ga_ie": {
+      "name": "Gaeilge",
+      "region": "Éire",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "gd_gb": {
+      "name": "Gàidhlig",
+      "region": "Alba",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "gl_es": {
+      "name": "Galego",
+      "region": "Galicia / Galiza",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "go_fr": {
+      "name": "Galo",
+      "region": "Bertègn",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "got_de": {
+      "name": "𐌲𐌿𐍄𐍂𐌰𐌶𐌳𐌰",
+      "region": "𐌲𐌿𐍄𐌸𐌹𐌿𐌳𐌰",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "hal_ua": {
+      "name": "Галицка",
+      "region": "Галичина, Вкраїна",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "haw_us": {
+      "name": "ʻŌlelo Hawaiʻi",
+      "region": "Hawaiʻi",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "he_il": {
+      "name": "עברית",
+      "region": "ישראל",
+      "bidirectional": true,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "hi_in": {
+      "name": "हिंदी",
+      "region": "भारत",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "hn_no": {
+      "name": "Høgnorsk",
+      "region": "Norig",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "hr_hr": {
+      "name": "Hrvatski",
+      "region": "Hrvatska",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "hu_hu": {
+      "name": "Magyar",
+      "region": "Magyarország",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "hy_am": {
+      "name": "Հայերեն",
+      "region": "Հայաստան",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "id_id": {
+      "name": "Bahasa Indonesia",
+      "region": "Indonesia",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ig_ng": {
+      "name": "Igbo",
+      "region": "Naigeria",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "io_en": {
+      "name": "Ido",
+      "region": "Idia",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "is_is": {
+      "name": "Íslenska",
+      "region": "Ísland",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "isv": {
+      "name": "Medžuslovjansky",
+      "region": "Slovjanščina",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "it_it": {
+      "name": "Italiano",
+      "region": "Italia",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ja_jp": {
+      "name": "日本語",
+      "region": "日本",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "jbo_en": {
+      "name": "la .lojban.",
+      "region": "la jbogu'e",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "jv_id": {
+      "name": "Basa Jawa",
+      "region": "Jawa, Indhonésiyah",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ka_ge": {
+      "name": "ქართული",
+      "region": "საქართველო",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "kk_kz": {
+      "name": "Қазақша",
+      "region": "Қазақстан",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "kn_in": {
+      "name": "ಕನ್ನಡ",
+      "region": "ಭಾರತ",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ko_kr": {
+      "name": "한국어",
+      "region": "대한민국",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ksh": {
+      "name": "Kölsch/Ripoarisch",
+      "region": "Rhingland",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "kw_gb": {
+      "name": "Kernewek",
+      "region": "Kernow",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ky_kg": {
+      "name": "Кыргызча",
+      "region": "Кыргызстан",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "la_la": {
+      "name": "Lingua Latina",
+      "region": "Latium",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "lb_lu": {
+      "name": "Lëtzebuergesch",
+      "region": "Lëtzebuerg",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "li_li": {
+      "name": "Limburgs",
+      "region": "Limburg",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "lmo": {
+      "name": "Lombard",
+      "region": "Lombardia",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "lo_la": {
+      "name": "ລາວ",
+      "region": "ປະເທດລາວ",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "lol_us": {
+      "name": "LOLCAT",
+      "region": "Kingdom of Cats",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "lt_lt": {
+      "name": "Lietuvių",
+      "region": "Lietuva",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "lv_lv": {
+      "name": "Latviešu",
+      "region": "Latvija",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "lzh": {
+      "name": "文言",
+      "region": "華夏",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "mk_mk": {
+      "name": "Македонски",
+      "region": "Северна Македонија",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "mn_mn": {
+      "name": "Монгол",
+      "region": "Монгол Улс",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ms_my": {
+      "name": "Bahasa Melayu",
+      "region": "Malaysia",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "mt_mt": {
+      "name": "Malti",
+      "region": "Malta",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "nah": {
+      "name": "Mēxikatlahtōlli",
+      "region": "Mēxiko",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "nds_de": {
+      "name": "Plattdüütsch",
+      "region": "Düütschland",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "nl_be": {
+      "name": "Vlaams",
+      "region": "België",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "nl_nl": {
+      "name": "Nederlands",
+      "region": "Nederland",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "nn_no": {
+      "name": "Norsk nynorsk",
+      "region": "Noreg",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "no_no": {
+      "name": "Norsk bokmål",
+      "region": "Norge",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "oc_fr": {
+      "name": "Occitan",
+      "region": "Occitània",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ovd": {
+      "name": "Övdalska",
+      "region": "Swerre",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "pl_pl": {
+      "name": "Polski",
+      "region": "Polska",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "pls": {
+      "name": "Ngiiwà",
+      "region": "Ndanìꞌngà",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "pt_br": {
+      "name": "Português",
+      "region": "Brasil",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "pt_pt": {
+      "name": "Português",
+      "region": "Portugal",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "qcb_es": {
+      "name": "Cántabru/Montañés",
+      "region": "Cantabria",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "qid": {
+      "name": "Bhs. Indonesia edjaän lama",
+      "region": "Indonesia tempo doeloe",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "qya_aa": {
+      "name": "Quenya",
+      "region": "Arda",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ro_ro": {
+      "name": "Română",
+      "region": "România",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "rpr": {
+      "name": "Русскій дореформенный",
+      "region": "Россійская имперія",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ru_ru": {
+      "name": "Русский",
+      "region": "Россия",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ry_ua": {
+      "name": "Руснацькый",
+      "region": "Пудкарпатя, Украина",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "sah_sah": {
+      "name": "Сахалыы",
+      "region": "Cаха Сирэ",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "se_no": {
+      "name": "Davvisámegiella",
+      "region": "Sápmi",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "sk_sk": {
+      "name": "Slovenčina",
+      "region": "Slovensko",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "sl_si": {
+      "name": "Slovenščina",
+      "region": "Slovenija",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "so_so": {
+      "name": "Soomaali",
+      "region": "Soomaaliya",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "sq_al": {
+      "name": "Shqip",
+      "region": "Shqipëri",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "sr_cs": {
+      "name": "Srpski",
+      "region": "Srbija",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "sr_sp": {
+      "name": "Српски",
+      "region": "Србија",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "sv_se": {
+      "name": "Svenska",
+      "region": "Sverige",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "sxu": {
+      "name": "Säggs’sch",
+      "region": "Saggsn",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "szl": {
+      "name": "Ślōnski",
+      "region": "Gōrny Ślōnsk",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "ta_in": {
+      "name": "தமிழ்",
+      "region": "இந்தியா",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "th_th": {
+      "name": "ไทย",
+      "region": "ประเทศไทย",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "tl_ph": {
+      "name": "Tagalog",
+      "region": "Pilipinas",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "tlh_aa": {
+      "name": "tlhIngan Hol",
+      "region": "tlhIngan wo'",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "tok": {
+      "name": "toki pona",
+      "region": "kulupu pona",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "tr_tr": {
+      "name": "Türkçe",
+      "region": "Türkiye",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "tt_ru": {
+      "name": "Татарча",
+      "region": "Татарстан, Рәсәй",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "tzo_mx": {
+      "name": "Bats'i k'op",
+      "region": "Jobel",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "uk_ua": {
+      "name": "Українська",
+      "region": "Україна",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "uz_uz": {
+      "name": "Özbekça",
+      "region": "Özbekiston",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "val_es": {
+      "name": "Català (Valencià)",
+      "region": "País Valencià",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "vec_it": {
+      "name": "Vèneto",
+      "region": "Veneto",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "vi_vn": {
+      "name": "Tiếng Việt",
+      "region": "Việt Nam",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "vp_vl": {
+      "name": "Viossa",
+      "region": "Vilant",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "vro": {
+      "name": "Võro",
+      "region": "Eesti",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "yi_de": {
+      "name": "ייִדיש",
+      "region": "אשכנזיש יידן",
+      "bidirectional": true,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "yo_ng": {
+      "name": "Yorùbá",
+      "region": "Nàìjíríà",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "zh_cn": {
+      "name": "简体中文",
+      "region": "中国大陆",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "zh_hk": {
+      "name": "繁體中文",
+      "region": "香港特別行政區",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "zh_tw": {
+      "name": "繁體中文",
+      "region": "台灣",
+      "bidirectional": false,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    },
+    "zlm_arab": {
+      "name": "بهاس ملايو",
+      "region": "مليسيا",
+      "bidirectional": true,
+      "native_keys": 24,
+      "english_fallback_keys": []
+    }
+  }
+}

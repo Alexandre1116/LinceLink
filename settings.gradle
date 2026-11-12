@@ -1,5 +1,5 @@
 pluginManagement { repositories { maven { url = 'https://maven.fabricmc.net/' }; gradlePluginPortal() } }
-rootProject.name = 'tailcat-minecraft'
+rootProject.name = 'LinceLink'
 include 'fabric-1.21.1'
 include 'fabric-1.20.1'
 include 'fabric-1.18.2', 'fabric-1.16.5'

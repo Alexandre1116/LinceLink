@@ -51,3 +51,15 @@ O teste forçado revelou que o mapa DERP usado pode omitir códigos regionais: R
 Pendente no cliente Minecraft: canal Forge entre dois computadores, apresentação no Tab, associação de vários convidados, mudança de DERP para direta, atualização de estado, saída/reentrada, compatibilidade com pares antigos. O transporte real foi testado, mas a interface e a negociação do canal dentro do jogo ainda não.
 
 Para repetir a integração explicitamente, compilar Tunnel/Installer, PeerRoutes e src/test/java/pt/tailcatmod/RouteSmoke.java com JDK 17 e Gson do classpath Minecraft. Executar `pt.tailcatmod.RouteSmoke DIRECT` com `-Dtailcat.executable=/caminho/tailcat`. Repetir `pt.tailcatmod.RouteSmoke DERP` com a variável de ambiente `TS_DEBUG_ALWAYS_USE_DERP=true`. Não são testes automáticos em cada CI porque usam Internet e relays públicos.
+
+## Forge 1.20.1 / mod 0.1.6
+
+Interface baseada em componentes traduzíveis nativos do Minecraft. Progresso do instalador passou a ser estruturado (fase/detalhe/falha), sem frases fixas em português; erros do transporte e convites expõem metadados de apresentação, mantendo os diagnósticos separados dos textos do ecrã. O campo de convite/código não é traduzido. Painel alargado e adaptado à largura da janela para acomodar rótulos maiores.
+
+Verificações executadas: auditoria dos assets oficiais 1.20.1, 24 chaves presentes nos 145 idiomas do seletor, sem argumentos extra; oito testes JUnit (cinco de percursos e três de internacionalização), incluindo mudança de idioma em componentes já criados, texto árabe lógico, caminhos Unicode/percentagens e versão Minecraft em erros traduzidos. Build/reobfJar passou. Smoke de instalação real (Linux e extração Windows) e TCP com identidades temporárias passou em Java 8.
+
+Não foi feita inspeção gráfica dos 145 idiomas. Continua pendente a verificação visual de RTL, fontes, nomes compridos, diferentes escalas de GUI, painel redimensionado e estados do Tab dentro do Minecraft.
+
+## Marca LinceLink / 0.1.6
+
+Nomes públicos, títulos/botões e nomes dos JARs mudados para LinceLink nos nove módulos. Logo original fornecido pelo proprietário: PNG RGBA 1254×1254 em branding/lincelink.png. Incluído como ícone na metadata Fabric/Forge e como textura no ecrã Forge 1.20.1. Mantidos os identificadores técnicos e protocolos para compatibilidade. Builds das outras versões incluem a marca e o logo; instalação automática, ping, percurso e internacionalização continuam específicos do Forge 1.20.1.

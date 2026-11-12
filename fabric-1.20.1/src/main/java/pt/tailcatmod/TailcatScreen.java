@@ -20,12 +20,12 @@ final class TailcatScreen extends Screen {
     private ButtonWidget action;
     private boolean busy;
     TailcatScreen(Screen parent, boolean host) {
-        super(Text.literal(host ? "Abrir para Tailcat" : "Conectar com Tailcat"));
+        super(Text.literal(host ? "Abrir para LinceLink" : "Conectar com LinceLink"));
         this.parent = parent; this.host = host;
     }
     @Override protected void init() {
         int x = width / 2 - 150, y = height / 2 - 40;
-        input = new TextFieldWidget(textRenderer, x, y, 300, 20, Text.literal("Convite Tailcat"));
+        input = new TextFieldWidget(textRenderer, x, y, 300, 20, Text.literal("Convite LinceLink"));
         input.setMaxLength(8192);
         if (host && TailcatMod.invite != null) input.setText(TailcatMod.invite);
         input.setEditable(!host);
@@ -36,8 +36,8 @@ final class TailcatScreen extends Screen {
             if (host) { if (TailcatMod.invite != null) client.keyboard.setClipboard(TailcatMod.invite); }
             else input.setText(client.keyboard.getClipboard());
         }).dimensions(x + 155, y + 28, 145, 20).build());
-        addDrawableChild(ButtonWidget.builder(Text.literal("Parar Tailcat"), b -> {
-            TailcatMod.stop(); busy = false; input.setText(""); status = "Ligação Tailcat terminada."; action.active = true;
+        addDrawableChild(ButtonWidget.builder(Text.literal("Parar LinceLink"), b -> {
+            TailcatMod.stop(); busy = false; input.setText(""); status = "Ligação LinceLink terminada."; action.active = true;
         }).dimensions(x, y + 56, 300, 20).build());
         addDrawableChild(ButtonWidget.builder(Text.literal("Voltar"), b -> close()).dimensions(x, y + 84, 300, 20).build());
     }
@@ -59,7 +59,7 @@ final class TailcatScreen extends Screen {
             TailcatMod.stop();
             Tunnel session = new Tunnel();
             TailcatMod.tunnel = session; TailcatMod.hosting = host;
-            busy = true; action.active = false; status = "A iniciar Tailcat…";
+            busy = true; action.active = false; status = "A iniciar LinceLink…";
             session.start(client.runDirectory.toPath(), host, argument, port).whenComplete((value, error) -> client.execute(() -> {
                 if (TailcatMod.tunnel != session) return;
                 busy = false;
@@ -71,7 +71,7 @@ final class TailcatScreen extends Screen {
                     input.setText(TailcatMod.invite); status = "Mundo aberto. Copia o convite e envia-o ao teu amigo.";
                 } else {
                     String local = "127.0.0.1:" + value;
-                    ConnectScreen.connect(parent, client, ServerAddress.parse(local), new ServerInfo("Tailcat", local, false), false);
+                    ConnectScreen.connect(parent, client, ServerAddress.parse(local), new ServerInfo("LinceLink", local, false), false);
                 }
             }));
         } catch (Exception e) {

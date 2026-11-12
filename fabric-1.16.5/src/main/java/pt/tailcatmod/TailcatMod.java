@@ -23,7 +23,7 @@ public final class TailcatMod implements ClientModInitializer {
         ScreenEvents.AFTER_INIT.register((client, screen, width, height) -> {
             if ((screen instanceof GameMenuScreen && client.isInSingleplayer()) || screen instanceof MultiplayerScreen) {
                 boolean host = screen instanceof GameMenuScreen;
-                Screens.getButtons(screen).add(new ButtonWidget(8, 8, 180, 20, new net.minecraft.text.LiteralText(host ? "Abrir para Tailcat" : "Conectar com Tailcat"), button -> client.openScreen(new TailcatScreen(screen, host))));
+                Screens.getButtons(screen).add(new ButtonWidget(8, 8, 180, 20, new net.minecraft.text.LiteralText(host ? "Abrir para LinceLink" : "Conectar com LinceLink"), button -> client.openScreen(new TailcatScreen(screen, host))));
             }
         });
         ClientLifecycleEvents.CLIENT_STOPPING.register(client -> stop());

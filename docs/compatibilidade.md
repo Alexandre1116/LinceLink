@@ -17,3 +17,7 @@ A compilação é uma verificação separada do funcionamento em jogo. **Todos o
 Versões intermédias e posteriores a 1.21.1 ainda não estão incluídas. O suporte mais recente será acrescentado depois da validação destas versões principais.
 
 Fontes: https://fabricmc.net/ ; https://files.minecraftforge.net/ ; https://github.com/tailscale/tailcat .
+
+## LinceLink 0.1.6
+
+Os nove módulos têm a nova marca e o logo. Os JARs começam por `lincelink-`. Instalação automática, ping no Tab, Direta/DERP e interface nos 145 idiomas estão no build **Forge 1.20.1**. Os restantes módulos mantêm as funcionalidades base e o executável Tailcat instalado manualmente. Remover o JAR antigo antes de instalar o novo, pois representam o mesmo mod.

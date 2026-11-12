@@ -20,12 +20,12 @@ final class TailcatScreen extends Screen {
     private Button action;
     private boolean busy;
     TailcatScreen(Screen parent, boolean host) {
-        super(new StringTextComponent(host ? "Abrir para Tailcat" : "Conectar com Tailcat"));
+        super(new StringTextComponent(host ? "Abrir para LinceLink" : "Conectar com LinceLink"));
         this.parent = parent; this.host = host;
     }
     @Override protected void init() {
         int x = width / 2 - 150, y = height / 2 - 40;
-        input = new TextFieldWidget(font, x, y, 300, 20, new StringTextComponent("Convite Tailcat"));
+        input = new TextFieldWidget(font, x, y, 300, 20, new StringTextComponent("Convite LinceLink"));
         input.setMaxStringLength(8192);
         if (host && TailcatMod.invite != null) input.setText(TailcatMod.invite);
         input.setEnabled(!host);
@@ -36,8 +36,8 @@ final class TailcatScreen extends Screen {
             if (host) { if (TailcatMod.invite != null) minecraft.keyboardListener.setClipboardString(TailcatMod.invite); }
             else input.setText(minecraft.keyboardListener.getClipboardString());
         }));
-        addButton(new Button(x, y + 56, 300, 20, new StringTextComponent("Parar Tailcat"), b -> {
-            TailcatMod.stop(); busy = false; input.setText(""); status = "Ligação Tailcat terminada."; action.active = true;
+        addButton(new Button(x, y + 56, 300, 20, new StringTextComponent("Parar LinceLink"), b -> {
+            TailcatMod.stop(); busy = false; input.setText(""); status = "Ligação LinceLink terminada."; action.active = true;
         }));
         addButton(new Button(x, y + 84, 300, 20, new StringTextComponent("Voltar"), b -> closeScreen()));
     }
@@ -62,7 +62,7 @@ final class TailcatScreen extends Screen {
             TailcatMod.stop();
             Tunnel session = new Tunnel();
             TailcatMod.tunnel = session; TailcatMod.hosting = host;
-            busy = true; action.active = false; status = "A iniciar Tailcat…";
+            busy = true; action.active = false; status = "A iniciar LinceLink…";
             session.start(minecraft.gameDir.toPath(), host, argument, port).whenComplete((value, error) -> minecraft.execute(() -> {
                 if (TailcatMod.tunnel != session) return;
                 busy = false;
@@ -74,7 +74,7 @@ final class TailcatScreen extends Screen {
                     input.setText(TailcatMod.invite); status = "Mundo aberto. Copia o convite e envia-o ao teu amigo.";
                 } else {
                     String local = "127.0.0.1:" + value;
-                    minecraft.displayGuiScreen(new ConnectingScreen(parent, minecraft, new ServerData("Tailcat", local, false)));
+                    minecraft.displayGuiScreen(new ConnectingScreen(parent, minecraft, new ServerData("LinceLink", local, false)));
                 }
             }));
         } catch (Exception e) {

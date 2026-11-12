@@ -30,7 +30,7 @@ public final class TailcatMod {
             net.minecraft.client.gui.screen.Screen screen = event.getGui();
             if ((screen instanceof IngameMenuScreen && client.isSingleplayer()) || screen instanceof MultiplayerScreen) {
                 boolean host = screen instanceof IngameMenuScreen;
-                event.addWidget(new Button(8, 8, 180, 20, new StringTextComponent(host ? "Abrir para Tailcat" : "Conectar com Tailcat"), button -> client.displayGuiScreen(new TailcatScreen(screen, host))));
+                event.addWidget(new Button(8, 8, 180, 20, new StringTextComponent(host ? "Abrir para LinceLink" : "Conectar com LinceLink"), button -> client.displayGuiScreen(new TailcatScreen(screen, host))));
             }
         }
         @SubscribeEvent public static void tick(TickEvent.ClientTickEvent event) {

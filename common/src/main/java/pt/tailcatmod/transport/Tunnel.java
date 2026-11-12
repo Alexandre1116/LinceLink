@@ -26,7 +26,7 @@ public final class Tunnel implements AutoCloseable {
         background(() -> {
             try {
                 Path installed = TailcatInstaller.findInstalled(gameDir);
-                if (installed == null) throw new IOException("Tailcat não está instalado. Instala-o em " + TailcatInstaller.destination(gameDir));
+                if (installed == null) throw new TransportFailure("mco.errorMessage.generic", "Tailcat executable not installed", TailcatInstaller.destination(gameDir).toString());
                 String executable = installed.toString();
                 Path clientKey = host ? null : createClientIdentity(executable);
                 ProcessBuilder builder = host
@@ -45,7 +45,7 @@ public final class Tunnel implements AutoCloseable {
                             catch (RuntimeException ignored) { /* Diagnostics must not interrupt the tunnel. */ }
                         }
                     }
-                    ready.completeExceptionally(new IOException("Tailcat terminou antes de abrir a ligação (código " + child.waitFor() + ")."));
+                    ready.completeExceptionally(new TransportFailure("connect.failed", "Tailcat exited before starting the tunnel", "Tailcat (" + child.waitFor() + ")"));
                 }
             } catch (Exception e) { ready.completeExceptionally(e); }
             finally { close(); }
@@ -68,13 +68,13 @@ public final class Tunnel implements AutoCloseable {
         Path key = directory.resolve("client.private.json");
         key.toFile().deleteOnExit();
         Process child = launch(new ProcessBuilder(executable, "genkey", "--client", "--key=" + key));
-        if (!child.waitFor(10, TimeUnit.SECONDS)) { child.destroyForcibly(); throw new IOException("Tempo esgotado ao criar identidade Tailcat."); }
+        if (!child.waitFor(10, TimeUnit.SECONDS)) { child.destroyForcibly(); throw new TransportFailure("disconnect.timeout", "Timed out creating Tailcat identity", "Tailcat"); }
         String publicKey = null;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(child.getInputStream(), java.nio.charset.StandardCharsets.UTF_8))) {
             String line;
             while ((line = reader.readLine()) != null) if (line.matches("nodekey:[0-9a-f]{64}")) publicKey = line;
         }
-        if (child.exitValue() != 0 || publicKey == null || !publicKey.matches("nodekey:[0-9a-f]{64}")) throw new IOException("Não foi possível criar a identidade Tailcat.");
+        if (child.exitValue() != 0 || publicKey == null || !publicKey.matches("nodekey:[0-9a-f]{64}")) throw new TransportFailure("connect.failed", "Cannot create Tailcat identity", "Tailcat");
         clientPublicKey = publicKey;
         return key;
     }
@@ -89,7 +89,7 @@ public final class Tunnel implements AutoCloseable {
     @Override public synchronized void close() {
         if (closed) return;
         closed = true;
-        ready.completeExceptionally(new CancellationException("Ligação cancelada"));
+        ready.completeExceptionally(new CancellationException("Tailcat connection cancelled"));
         Process child = process;
         Path directory = keyDirectory;
         process = null;

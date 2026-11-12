@@ -1,8 +1,12 @@
-# Tailcat Multiplayer
+# LinceLink
+
+<p align="center"><img src="branding/lincelink.png" alt="LinceLink" width="220"></p>
 
 Mod cliente para partilhar um mundo Minecraft Java através do Tailcat. O anfitrião abre o mundo, copia um convite e envia-o ao convidado. O convidado cola o convite no menu multiplayer.
 
 ## Estado atual
+
+LinceLink é o nome do projeto; Tailcat v0.7.0 continua a ser o transporte utilizado.
 
 O projeto tem nove módulos: Forge 1.12.2 e Fabric/Forge para 1.16.5, 1.18.2, 1.20.1 e 1.21.1. Consulta [a matriz de dependências](docs/compatibilidade.md).
 
@@ -21,16 +25,16 @@ A instalação automática suporta Windows x64/ARM64 e Linux x64/ARM64. Em macOS
 Nos dois computadores:
 
 1. Instala a versão Minecraft/loader indicada na [matriz de dependências](docs/compatibilidade.md). Fabric precisa da Fabric API indicada; Forge não usa Fabric API.
-2. Copia o JAR do mod correspondente ao loader para a pasta `mods` da instância.
+2. Copia o JAR do mod correspondente ao loader para a pasta `mods` da instância. Nos builds 0.1.6, o nome do JAR começa por `lincelink-`; remove o JAR antigo antes de instalar o novo.
 3. Obtém o **Tailcat v0.7.0** oficial em https://github.com/tailscale/tailcat/releases/tag/v0.7.0 . Extrai o executável e coloca-o em `<pasta da instância>/tailcat/tailcat` (Linux/macOS) ou `<pasta da instância>/tailcat/tailcat.exe` (Windows). Em Unix, torna-o executável com `chmod +x`. Também pode estar no PATH, ou ser indicado por `-Dtailcat.executable=/caminho/absoluto/tailcat` nos argumentos Java.
 
-O executável não está incluído nos JARs. Só Forge 1.20.1 a partir do mod 0.1.2 o descarrega automaticamente. Não precisas de conta Tailscale. O projeto não é oficial da Tailscale.
+O executável não está incluído nos JARs. Só Forge 1.20.1 a partir do mod 0.1.2 o descarrega automaticamente. Não precisas de conta Tailscale. LinceLink não é um projeto oficial da Tailscale.
 
 ## Utilização
 
-**Anfitrião:** abre o mundo singleplayer, prime Esc e escolhe **Abrir para Tailcat** → **Abrir mundo** → **Copiar convite**. Envia o convite ao teu amigo e mantém o mundo aberto.
+**Anfitrião:** abre o mundo singleplayer, prime Esc, escolhe o botão **LinceLink**, inicia a partilha do mundo e copia o convite. Envia o convite ao teu amigo e mantém o mundo aberto.
 
-**Convidado:** abre **Multiplayer** → **Conectar com Tailcat** → **Colar convite** → **Conectar**.
+**Convidado:** abre **Multiplayer**, escolhe o botão **LinceLink**, cola o convite (`Ctrl+V`/`⌘V`) e entra no servidor.
 
 O convite é uma única string `tailcat-mc:1:<versão Minecraft>:<endereço tc…>:<porta>`. O mod rejeita convites de outra versão do Minecraft. Usa a mesma versão do mod nos dois lados; em mundos com outros mods, mantém também os mods de conteúdo compatíveis.
 
@@ -57,6 +61,16 @@ No Forge 1.20.1 / mod 0.1.5, a lista mostra `Nome [42 ms] [Direta]` ou `Nome [90
 O Tailcat fornece amostras aproximadamente a cada cinco segundos. O mod distribui os estados uma vez por segundo e expira amostras com mais de 15 segundos. Cada convidado usa uma identidade Tailcat temporária por sessão; comunica apenas a chave pública ao anfitrião para a associação ao jogador. Os restantes clientes recebem apenas UUIDs e estados, sem endereços IP nem chaves. A identidade comunicada pelo cliente serve a apresentação do estado; não é uma nova forma de autenticação de jogadores.
 
 Os pares sem o canal de estados continuam a poder ligar, mas os dados de percurso podem aparecer como `?`. Servidores normais sem este mod não fornecem os estados dos restantes jogadores. Esta funcionalidade é específica do build Forge 1.20.1 por agora.
+
+## Idiomas
+
+O build **Forge 1.20.1 / mod 0.1.6** acompanha automaticamente o idioma escolhido em **Opções → Idioma** do Minecraft. Usa as traduções nativas do jogo para os menus, botões, progresso, erros e estados do Tab. A auditoria dos assets oficiais verificou as 24 chaves utilizadas nos **145 idiomas** do seletor 1.20.1, incluindo os idiomas especiais e os escritos da direita para a esquerda.
+
+Os nomes dos botões seguem agora os do próprio Minecraft: o botão do anfitrião tem a marca LinceLink e o texto nativo de abrir em LAN; o convidado tem Tailcat e o texto nativo de entrar no servidor. O botão de colar usa `Ctrl+V` ou `⌘V` em macOS; também podes usar o atalho diretamente no campo. O progresso usa os textos nativos de preparação, download, extração e conclusão.
+
+LinceLink, Tailcat, DERP, unidades técnicas, atalhos e o código do convite mantêm-se como identificadores. Os detalhes técnicos ficam no `latest.log`; as mensagens apresentadas no ecrã são traduzidas. Este suporte de idiomas aplica-se ao build Forge 1.20.1; os builds antigos continuam com a interface anterior.
+
+Ver [detalhes e verificação dos idiomas](docs/idiomas.md) e [relatório dos 145 idiomas](docs/idiomas.json). A auditoria confirma cobertura das chaves e argumentos, não uma inspeção visual de cada idioma dentro do jogo.
 
 ## Compilar
 
@@ -99,3 +113,7 @@ A versão 0.1.1 indica o caminho exato esperado quando não consegue iniciar o e
 ### Testar o instalador (integração explícita)
 
 Compila o núcleo e `common/src/test/java/pt/tailcatmod/transport/InstallerSmoke.java` com JDK 8 e executa `pt.tailcatmod.transport.InstallerSmoke /caminho/tailcat_0.7.0_windows_amd64.zip`. Este teste usa Internet para instalar e executar a release Linux oficial numa pasta temporária, valida extração Windows, SHA-256, rejeição de caminhos maliciosos, pedidos simultâneos, reutilização e retry. O ZIP Windows usado no teste deve ser o oficial v0.7.0.
+
+## Marca e logo
+
+O nome público é **LinceLink**. O logo fornecido pelo proprietário está em `branding/lincelink.png` e é incluído na lista de mods de cada build; também aparece no ecrã de ligação do Forge 1.20.1. O ficheiro original foi preservado. O ID interno `tailcatmod`, os códigos de convite e o protocolo existente são mantidos para compatibilidade. Não instalar o JAR antigo e o novo simultaneamente.

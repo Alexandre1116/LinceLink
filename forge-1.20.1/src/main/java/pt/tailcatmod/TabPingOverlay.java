@@ -39,14 +39,7 @@ public final class TabPingOverlay {
                     : ping < 300 ? ChatFormatting.YELLOW : ChatFormatting.RED;
             Component displayed = base.copy().append(Component.literal(" [" + (ping < 0 ? "--" : ping) + " ms]").withStyle(color));
             PeerRoutes.Route route = RouteNetwork.route(info.getProfile().getId());
-            String label = switch (route) {
-                case DIRECT -> "Direta";
-                case DERP -> "DERP";
-                case LOCAL -> "Local";
-                case NORMAL -> "Sem Tailcat";
-                case UNKNOWN -> "?";
-            };
-            displayed = displayed.copy().append(Component.literal(" [" + label + "]").withStyle(
+            displayed = displayed.copy().append(Component.literal(" [").append(UiText.route(route)).append("]").withStyle(
                     route == PeerRoutes.Route.DIRECT ? ChatFormatting.AQUA : route == PeerRoutes.Route.DERP
                             ? ChatFormatting.GOLD : ChatFormatting.GRAY));
             NAMES.put(info, new Name(original, displayed));

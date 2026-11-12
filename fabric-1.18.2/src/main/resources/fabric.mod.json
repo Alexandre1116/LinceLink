@@ -1,1 +1,20 @@
-{"schemaVersion":1,"id":"tailcatmod","version":"0.1.0","name":"Tailcat Multiplayer","description":"Partilha mundos singleplayer através do Tailcat.","environment":"client","entrypoints":{"client":["pt.tailcatmod.TailcatMod"]},"depends":{"fabricloader":">=0.16.10","minecraft":"1.18.2","java":">=17","fabric-api":"*"}}
+{
+  "schemaVersion": 1,
+  "id": "tailcatmod",
+  "version": "0.1.6",
+  "name": "LinceLink",
+  "description": "Minecraft Java · LinceLink · P2P / DERP",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "pt.tailcatmod.TailcatMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "1.18.2",
+    "java": ">=17",
+    "fabric-api": "*"
+  },
+  "icon": "lincelink.png"
+}
