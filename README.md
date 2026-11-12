@@ -18,6 +18,8 @@
 
 LinceLink is an experimental client mod that uses [Tailcat](https://github.com/tailscale/tailcat) to connect players. The host opens a singleplayer world and shares an invite; the guest pastes it into the multiplayer menu. Both players need the matching Minecraft version and LinceLink build. No Tailscale account is required.
 
+**Server-side versions: Coming soon.** The available builds are client-side.
+
 ## Supported versions
 
 | Minecraft Java | Forge | Fabric | NeoForge | Java |
@@ -67,6 +69,8 @@ These screenshots show the Forge 1.20.1 interface and a multiplayer test.
 ## Português
 
 O LinceLink permite partilhar um mundo singleplayer do Minecraft Java com um amigo através de um convite, usando o Tailcat. Os dois jogadores precisam da mesma versão do Minecraft e do build correspondente do LinceLink. Não é necessária uma conta Tailscale.
+
+**Versões para servidor: em breve.** Os builds disponíveis são para o cliente.
 
 1. Instala o Forge ou Fabric, o JAR correto das [releases](https://github.com/Alexandre1116/LinceLink/releases) e, no caso do Fabric, a [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api). Ambos os jogadores devem instalar os ficheiros na pasta `mods` da sua instância.
 2. No Forge 1.20.1, o Tailcat pode ser instalado automaticamente em Windows e Linux x64/ARM64. Nos restantes builds ou plataformas, instala manualmente o [Tailcat v0.7.0](https://github.com/tailscale/tailcat/releases/tag/v0.7.0), conforme o [guia detalhado](docs/guia-detalhado.md).
