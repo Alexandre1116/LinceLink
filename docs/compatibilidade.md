@@ -12,7 +12,7 @@ Alvos desta primeira versão:
 
 O núcleo partilhado é compatível com Java 8. Cada módulo tem código de menus e ligação específico da versão do Minecraft e do loader. Não existe um JAR universal.
 
-A compilação é uma verificação separada do funcionamento em jogo. **Todos os builds ainda precisam de teste manual com dois clientes Minecraft**, incluindo redes distintas. O teste automatizado do núcleo usa dois processos Tailcat v0.7.0 e uma ligação TCP real; não simula o protocolo Minecraft.
+A compilação é uma verificação separada do funcionamento em jogo. A versão Forge 1.20.1 foi testada em jogo pelo proprietário com um amigo. Os outros builds e cenários de rede precisam de mais testes manuais com dois clientes Minecraft. O teste automatizado do núcleo usa dois processos Tailcat v0.7.0 e uma ligação TCP real; não simula o protocolo Minecraft.
 
 Versões intermédias e posteriores a 1.21.1 ainda não estão incluídas. O suporte mais recente será acrescentado depois da validação destas versões principais.
 
