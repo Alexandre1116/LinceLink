@@ -25,7 +25,7 @@ A instalação automática suporta Windows x64/ARM64 e Linux x64/ARM64. Em macOS
 Nos dois computadores:
 
 1. Instala a versão Minecraft/loader indicada na [matriz de dependências](docs/compatibilidade.md). Fabric precisa da Fabric API indicada; Forge não usa Fabric API.
-2. Copia o JAR do mod correspondente ao loader para a pasta `mods` da instância. Nos builds 0.1.6, o nome do JAR começa por `lincelink-`; remove o JAR antigo antes de instalar o novo.
+2. Copia o JAR do mod correspondente ao loader para a pasta `mods` da instância. Desde o build 0.1.6, o nome do JAR começa por `lincelink-`; remove o JAR antigo antes de instalar o novo.
 3. Obtém o **Tailcat v0.7.0** oficial em https://github.com/tailscale/tailcat/releases/tag/v0.7.0 . Extrai o executável e coloca-o em `<pasta da instância>/tailcat/tailcat` (Linux/macOS) ou `<pasta da instância>/tailcat/tailcat.exe` (Windows). Em Unix, torna-o executável com `chmod +x`. Também pode estar no PATH, ou ser indicado por `-Dtailcat.executable=/caminho/absoluto/tailcat` nos argumentos Java.
 
 O executável não está incluído nos JARs. Só Forge 1.20.1 a partir do mod 0.1.2 o descarrega automaticamente. Não precisas de conta Tailscale. LinceLink não é um projeto oficial da Tailscale.
@@ -38,7 +38,7 @@ O executável não está incluído nos JARs. Só Forge 1.20.1 a partir do mod 0.
 
 O convite é uma única string `tailcat-mc:1:<versão Minecraft>:<endereço tc…>:<porta>`. O mod rejeita convites de outra versão do Minecraft. Usa a mesma versão do mod nos dois lados; em mundos com outros mods, mantém também os mods de conteúdo compatíveis.
 
-**Parar Tailcat** termina o túnel e desliga os convidados. Sair do mundo também termina o túnel. O mundo é aberto usando o servidor LAN integrado do Minecraft: parar o túnel não fecha esse servidor LAN; para o fechar, sai do mundo. A abertura desativa a pausa do mundo. A configuração normal de autenticação do Minecraft é mantida.
+O botão de desligar do **LinceLink** termina o túnel e desliga os convidados. Sair do mundo também termina o túnel. O mundo é aberto usando o servidor LAN integrado do Minecraft: parar o túnel não fecha esse servidor LAN; para o fechar, sai do mundo. A abertura desativa a pausa do mundo. A configuração normal de autenticação do Minecraft é mantida.
 
 O convite dá acesso ao servidor a quem o receber: partilha-o apenas com os jogadores convidados. Cada nova sessão Tailcat cria um novo endereço. Só a porta do mundo é publicada pelo Tailcat. O cliente escuta em loopback (`127.0.0.1`).
 
@@ -50,7 +50,7 @@ O texto é verde abaixo de 150 ms, amarelo abaixo de 300 ms e vermelho a partir 
 
 ## Direta ou DERP no Tab
 
-No Forge 1.20.1 / mod 0.1.5, a lista mostra `Nome [42 ms] [Direta]` ou `Nome [90 ms] [DERP]`. **O anfitrião e os convidados devem instalar 0.1.5.** O estado é recolhido no anfitrião e enviado aos clientes do mod; não é deduzido do ping nem de um processo `tailcat ping` separado.
+No Forge 1.20.1 / mod 0.1.5, a lista mostra `Nome [42 ms] [Direta]` ou `Nome [90 ms] [DERP]`. **O anfitrião e os convidados devem usar uma versão com estes estados (0.1.5 ou posterior).** O estado é recolhido no anfitrião e enviado aos clientes do mod; não é deduzido do ping nem de um processo `tailcat ping` separado.
 
 - `Direta`: o estado do túnel indica um endpoint UDP direto.
 - `DERP`: o peer tem tráfego ativo confirmado no motor WireGuard, sem percurso direto exclusivo nem peer relay. Pode aparecer no arranque e durante mudanças de percurso.
@@ -66,7 +66,7 @@ Os pares sem o canal de estados continuam a poder ligar, mas os dados de percurs
 
 O build **Forge 1.20.1 / mod 0.1.6** acompanha automaticamente o idioma escolhido em **Opções → Idioma** do Minecraft. Usa as traduções nativas do jogo para os menus, botões, progresso, erros e estados do Tab. A auditoria dos assets oficiais verificou as 24 chaves utilizadas nos **145 idiomas** do seletor 1.20.1, incluindo os idiomas especiais e os escritos da direita para a esquerda.
 
-Os nomes dos botões seguem agora os do próprio Minecraft: o botão do anfitrião tem a marca LinceLink e o texto nativo de abrir em LAN; o convidado tem Tailcat e o texto nativo de entrar no servidor. O botão de colar usa `Ctrl+V` ou `⌘V` em macOS; também podes usar o atalho diretamente no campo. O progresso usa os textos nativos de preparação, download, extração e conclusão.
+Os nomes dos botões seguem agora os do próprio Minecraft: o botão do anfitrião tem a marca LinceLink e o texto nativo de abrir em LAN; o convidado tem LinceLink e o texto nativo de entrar no servidor. O botão de colar usa `Ctrl+V` ou `⌘V` em macOS; também podes usar o atalho diretamente no campo. O progresso usa os textos nativos de preparação, download, extração e conclusão.
 
 LinceLink, Tailcat, DERP, unidades técnicas, atalhos e o código do convite mantêm-se como identificadores. Os detalhes técnicos ficam no `latest.log`; as mensagens apresentadas no ecrã são traduzidas. Este suporte de idiomas aplica-se ao build Forge 1.20.1; os builds antigos continuam com a interface anterior.
 
@@ -104,9 +104,11 @@ Se Tailcat não iniciar, verifica o caminho do executável e se estás a usar a 
 
 Com duas contas Minecraft, abrir um mundo, copiar/colar o convite, entrar, mover e alterar blocos. Repetir com redes distintas, confirmar desconexão ao parar o túnel/sair do mundo e repetir uma segunda sessão. Verificar também convite inválido, versão diferente e executável ausente.
 
-## Windows: erro CreateProcess error=2
+## Histórico: Windows e CreateProcess error=2
 
-Significa que o executável Tailcat não foi encontrado. Para Forge 1.20.1 existe um pacote experimental Windows x64 na release v0.1.1, com `mods/` e `tailcat/` prontos para extrair para a pasta da instância. Remove o JAR anterior antes de instalar o novo. O executável oficial v0.7.0 e a licença BSD original estão incluídos no ZIP. O JAR isolado continua a precisar de Tailcat instalado separadamente.
+Nas versões atuais de Forge 1.20.1, o instalador automático trata do executável em falta. A informação seguinte refere-se ao antigo build 0.1.1.
+
+O erro significa que o executável Tailcat não foi encontrado. Para Forge 1.20.1 existe um pacote experimental Windows x64 na release v0.1.1, com `mods/` e `tailcat/` prontos para extrair para a pasta da instância. Remove o JAR anterior antes de instalar o novo. O executável oficial v0.7.0 e a licença BSD original estão incluídos no ZIP. O JAR isolado continua a precisar de Tailcat instalado separadamente.
 
 A versão 0.1.1 indica o caminho exato esperado quando não consegue iniciar o executável. Isto não diagnostica outros erros de arranque do Minecraft; para esses é necessário `logs/latest.log`.
 
@@ -117,3 +119,11 @@ Compila o núcleo e `common/src/test/java/pt/tailcatmod/transport/InstallerSmoke
 ## Marca e logo
 
 O nome público é **LinceLink**. O logo fornecido pelo proprietário está em `branding/lincelink.png` e é incluído na lista de mods de cada build; também aparece no ecrã de ligação do Forge 1.20.1. O ficheiro original foi preservado. O ID interno `tailcatmod`, os códigos de convite e o protocolo existente são mantidos para compatibilidade. Não instalar o JAR antigo e o novo simultaneamente.
+
+## CurseForge
+
+Projeto existente: https://www.curseforge.com/minecraft/mc-mods/lincelink
+
+Os ficheiros para preparar a página e os uploads estão em [curseforge/UPLOAD.md](curseforge/UPLOAD.md). Incluem descrição em inglês/português, resumo, links, changelog, dependências por loader e instruções para enviar cada JAR como Alpha.
+
+Após compilar os nove módulos, `python3 tools/package_curseforge.py --version 0.1.7` valida os JARs e gera `release-artifacts/LinceLink-CurseForge-0.1.7.zip`. Extrair este kit e enviar os JARs individualmente; o ZIP não é um modpack. O script não acede à conta nem faz uploads para CurseForge.

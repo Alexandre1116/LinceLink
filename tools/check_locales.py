@@ -54,7 +54,7 @@ def main():
     sources += list((ROOT / 'common/src/main/java').rglob('*.java'))
     keys = set()
     for source in sources:
-        for text in re.findall(r'"([^"\n]+)"', source.read_text()):
+        for text in re.findall(r'"([^"\n]+)"', source.read_text(encoding='utf-8')):
             if text.startswith(PREFIXES) and re.fullmatch(r'[A-Za-z0-9_.]+', text):
                 keys.add(text)
     if not keys or keys - english.keys():
@@ -83,7 +83,7 @@ def main():
     report = {'minecraft': '1.20.1', 'asset_index': version['assetIndex']['url'],
               'language_count': len(languages), 'keys': sorted(keys), 'languages': languages}
     args.report.parent.mkdir(parents=True, exist_ok=True)
-    args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+    args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     complete = sum(not value['english_fallback_keys'] for value in languages.values())
     print(f'PASS: {len(keys)} UI keys resolve in all {len(languages)} game languages.')
     print(f'Complete native keys and valid parameter counts: {complete}/{len(languages)} locales.')

@@ -63,3 +63,9 @@ Não foi feita inspeção gráfica dos 145 idiomas. Continua pendente a verifica
 ## Marca LinceLink / 0.1.6
 
 Nomes públicos, títulos/botões e nomes dos JARs mudados para LinceLink nos nove módulos. Logo original fornecido pelo proprietário: PNG RGBA 1254×1254 em branding/lincelink.png. Incluído como ícone na metadata Fabric/Forge e como textura no ecrã Forge 1.20.1. Mantidos os identificadores técnicos e protocolos para compatibilidade. Builds das outras versões incluem a marca e o logo; instalação automática, ping, percurso e internacionalização continuam específicos do Forge 1.20.1.
+
+## Preparação CurseForge / 0.1.7
+
+Metadados dos nove builds atualizados com URL do projeto existente, autoria e ligações de suporte. Licença MIT incluída em cada JAR; Fabric declara licença/contactos. Descrição funcional em inglês primeiro e português depois, changelog e plano de upload por loader/versão, com Fabric API como dependência obrigatória apenas nos ficheiros Fabric. Todos os ficheiros preparados como Alpha.
+
+Nove builds recompilados e validados pelo tools/package_curseforge.py: nome/versão, homepage, licença, autor, dependências, bytecode Java, ícones, integridade, ausência de executáveis nativos e classes Minecraft nos JARs. O kit inclui apenas os JARs selecionados e os textos/logo para publicação; não é um modpack nem um upload automático. Nenhum ficheiro foi enviado ao CurseForge por este processo.

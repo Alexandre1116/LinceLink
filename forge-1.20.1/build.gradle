@@ -1,5 +1,5 @@
 plugins { id 'net.minecraftforge.gradle' version '6.0.54' }
-version = '0.1.6'
+version = '0.1.7'
 group = 'pt.tailcatmod'
 base { archivesName = 'lincelink-forge-1.20.1' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -20,3 +20,5 @@ processResources {
     from('../branding') { include 'lincelink.png' }
     from('../branding') { include 'lincelink.png'; into 'assets/tailcatmod/textures/gui' }
 }
+
+processResources { from('../LICENSE') { rename { 'LICENSE-LinceLink.txt' } } }

@@ -1,12 +1,15 @@
 modLoader="javafml"
 loaderVersion="[40,)"
 license="MIT"
+issueTrackerURL="https://github.com/Alexandre1116/LinceLink/issues"
 [[mods]]
 modId="tailcatmod"
-version="0.1.6"
+version="0.1.7"
 displayName="LinceLink"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/lincelink"
+authors="Alexandre1116"
 logoFile="lincelink.png"
-description='''Minecraft Java · LinceLink · P2P / DERP'''
+description='''Share singleplayer worlds with friends using invite codes and encrypted Tailcat connections.'''
 displayTest="IGNORE_ALL_VERSION"
 [[dependencies.tailcatmod]]
 modId="forge"

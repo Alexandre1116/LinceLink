@@ -1,0 +1,29 @@
+{
+  "name": "LinceLink",
+  "slug": "lincelink",
+  "projectUrl": "https://www.curseforge.com/minecraft/mc-mods/lincelink",
+  "projectType": "Mods",
+  "game": "Minecraft",
+  "summary": "Share singleplayer worlds through invite codes and encrypted connections, without manual router port forwarding.",
+  "license": "MIT License",
+  "sourceUrl": "https://github.com/Alexandre1116/LinceLink",
+  "issuesUrl": "https://github.com/Alexandre1116/LinceLink/issues",
+  "author": "Alexandre1116",
+  "suggestedPrimaryCategory": "Server Utility",
+  "suggestedAdditionalCategories": [
+    "Utility & QoL"
+  ],
+  "releaseType": "alpha",
+  "environment": "client",
+  "logo": "logo.png",
+  "description": "DESCRIPTION.md",
+  "changelog": "CHANGELOG.md",
+  "nativeTransport": {
+    "name": "Tailcat",
+    "version": "0.7.0",
+    "bundled": false,
+    "automaticDownload": "Forge 1.20.1 only; Windows and Linux x64/ARM64; SHA-256 pinned"
+  },
+  "projectExperimentalToggle": false,
+  "note": "Alpha is the file release type; do not confuse it with the optional Experimental project setting."
+}

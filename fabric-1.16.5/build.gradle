@@ -1,5 +1,5 @@
 plugins { id 'fabric-loom' }
-version = '0.1.6'
+version = '0.1.7'
 group = 'pt.tailcatmod'
 base { archivesName = 'lincelink-fabric-1.16.5' }
 repositories { mavenCentral() }
@@ -18,3 +18,5 @@ processResources {
     from('../branding') { include 'lincelink.png' }
     from('../branding') { include 'lincelink.png'; into 'assets/tailcatmod/textures/gui' }
 }
+
+processResources { from('../LICENSE') { rename { 'LICENSE-LinceLink.txt' } } }

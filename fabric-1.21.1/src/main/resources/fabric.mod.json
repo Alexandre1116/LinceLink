@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "id": "tailcatmod",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "name": "LinceLink",
-  "description": "Minecraft Java · LinceLink · P2P / DERP",
+  "description": "Share singleplayer worlds with friends using invite codes and encrypted Tailcat connections.",
   "environment": "client",
   "entrypoints": {
     "client": [
@@ -16,5 +16,14 @@
     "java": ">=21",
     "fabric-api": "*"
   },
-  "icon": "lincelink.png"
+  "icon": "lincelink.png",
+  "authors": [
+    "Alexandre1116"
+  ],
+  "license": "MIT",
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/lincelink",
+    "sources": "https://github.com/Alexandre1116/LinceLink",
+    "issues": "https://github.com/Alexandre1116/LinceLink/issues"
+  }
 }

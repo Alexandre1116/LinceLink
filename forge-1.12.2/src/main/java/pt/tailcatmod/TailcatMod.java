@@ -9,7 +9,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import pt.tailcatmod.transport.Tunnel;
 
-@Mod(modid="tailcatmod", name="LinceLink", version="0.1.6", clientSideOnly=true, acceptedMinecraftVersions="[1.12.2]")
+@Mod(modid="tailcatmod", name="LinceLink", version="0.1.7", clientSideOnly=true, acceptedMinecraftVersions="[1.12.2]")
 @Mod.EventBusSubscriber(modid="tailcatmod", value=Side.CLIENT)
 public final class TailcatMod {
     static Tunnel tunnel;
