@@ -1,0 +1,1 @@
+{"schemaVersion":1,"id":"tailcatmod","version":"0.1.0","name":"Tailcat Multiplayer","description":"Partilha mundos singleplayer através do Tailcat.","environment":"client","entrypoints":{"client":["pt.tailcatmod.TailcatMod"]},"depends":{"fabricloader":">=0.16.10","minecraft":"1.16.5","java":">=8","fabric-api":"*"}}

@@ -1,0 +1,21 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+[[mods]]
+modId="tailcatmod"
+version="0.1.0"
+displayName="Tailcat Multiplayer"
+description='''Partilha mundos singleplayer através do Tailcat.'''
+displayTest="IGNORE_ALL_VERSION"
+[[dependencies.tailcatmod]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.34,37)"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.tailcatmod]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.16.6)"
+ordering="NONE"
+side="CLIENT"

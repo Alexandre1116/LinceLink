@@ -1,0 +1,15 @@
+plugins { id 'net.minecraftforge.gradle' version '6.0.54' }
+version = '0.1.0'
+group = 'pt.tailcatmod'
+base { archivesName = 'tailcat-forge-1.16.5' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+minecraft { mappings channel: 'snapshot', version: '20210309-1.16.5'; reobf = true }
+repositories { mavenCentral() }
+dependencies { minecraft 'net.minecraftforge:forge:1.16.5-36.2.34' }
+sourceSets.main.java.srcDir '../common/src/main/java'
+
+sourceCompatibility = targetCompatibility = '1.8'
+
+jar.finalizedBy('reobfJar')
+
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }

@@ -1,0 +1,15 @@
+plugins { id 'fabric-loom' }
+version = '0.1.0'
+group = 'pt.tailcatmod'
+base { archivesName = 'tailcat-fabric-1.16.5' }
+repositories { mavenCentral() }
+dependencies {
+ minecraft 'com.mojang:minecraft:1.16.5'
+ mappings 'net.fabricmc:yarn:1.16.5+build.10:v2'
+ modImplementation 'net.fabricmc:fabric-loader:0.16.10'
+ modImplementation 'net.fabricmc.fabric-api:fabric-api:0.42.0+1.16'
+}
+java { toolchain.languageVersion = JavaLanguageVersion.of(21) }
+sourceSets.main.java.srcDir '../common/src/main/java'
+
+tasks.withType(JavaCompile).configureEach { options.release = 8 }
