@@ -22,7 +22,12 @@ public final class Tunnel implements AutoCloseable {
         ProcessBuilder builder = host
                 ? new ProcessBuilder(executable, "serve", Integer.toString(port))
                 : new ProcessBuilder(executable, "forward", argument, "0:" + port);
-        process = builder.redirectErrorStream(true).start();
+        try {
+            process = builder.redirectErrorStream(true).start();
+        } catch (IOException e) {
+            Path expected = gameDir.resolve("tailcat").resolve(System.getProperty("os.name").startsWith("Windows") ? "tailcat.exe" : "tailcat").toAbsolutePath();
+            throw new IOException("Não foi possível iniciar Tailcat. Instala o executável oficial v0.7.0 em " + expected + ". Se já existe, verifica permissões e compatibilidade com o sistema.", e);
+        }
         Process child = process;
         background(() -> {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(child.getInputStream(), java.nio.charset.StandardCharsets.UTF_8))) {

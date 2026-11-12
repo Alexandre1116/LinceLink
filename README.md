@@ -63,3 +63,9 @@ Se Tailcat não iniciar, verifica o caminho do executável e se estás a usar a 
 ## Teste manual pendente
 
 Com duas contas Minecraft, abrir um mundo, copiar/colar o convite, entrar, mover e alterar blocos. Repetir com redes distintas, confirmar desconexão ao parar o túnel/sair do mundo e repetir uma segunda sessão. Verificar também convite inválido, versão diferente e executável ausente.
+
+## Windows: erro CreateProcess error=2
+
+Significa que o executável Tailcat não foi encontrado. Para Forge 1.20.1 existe um pacote experimental Windows x64 na release v0.1.1, com `mods/` e `tailcat/` prontos para extrair para a pasta da instância. Remove o JAR anterior antes de instalar o novo. O executável oficial v0.7.0 e a licença BSD original estão incluídos no ZIP. O JAR isolado continua a precisar de Tailcat instalado separadamente.
+
+A versão 0.1.1 indica o caminho exato esperado quando não consegue iniciar o executável. Isto não diagnostica outros erros de arranque do Minecraft; para esses é necessário `logs/latest.log`.
