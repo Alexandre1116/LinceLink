@@ -28,16 +28,16 @@ LinceLink is an experimental client mod that uses [Tailcat](https://github.com/t
 | 1.16.5 | ✓ | ✓ | — | 8 |
 | 1.18.2 | ✓ | ✓ | — | 17 |
 | 1.20.1 | ✓ | ✓ | Coming soon | 17 |
-| 1.21.1 | ✓ | ✓ | Coming soon | 21 |
+| 1.21.1 | ✓ | ✓ | ✓ | 21 |
 
 Choose the JAR for your exact Minecraft version and loader; there is no universal JAR. Fabric builds also require [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api). See the [compatibility matrix](docs/compatibilidade.md) for loader and dependency versions. Other Minecraft versions are not currently supported.
 
-The owner has tested Forge 1.20.1 in game with a friend. The other builds and network conditions need further testing. Releases are experimental; CurseForge availability depends on its review process.
+The owner has tested Forge 1.20.1 in game with a friend. NeoForge 1.21.1 has been tested for world hosting and invitation copying; joining with a second client and other builds and network conditions need further testing. Releases are experimental; CurseForge availability depends on its review process.
 
 ## Install and play
 
-1. On **both computers**, install the matching Minecraft version, Forge or Fabric, and the corresponding LinceLink JAR from [GitHub Releases](https://github.com/Alexandre1116/LinceLink/releases). Place the JAR in the instance's `mods` folder. Fabric users must also install the matching Fabric API.
-2. For **Forge 1.20.1**, LinceLink can download Tailcat v0.7.0 automatically on Windows and Linux x64/ARM64 when it is missing. Other builds and platforms need [Tailcat v0.7.0](https://github.com/tailscale/tailcat/releases/tag/v0.7.0) installed manually: put the executable in the instance's `tailcat` folder or on the system PATH. See the [detailed guide](docs/guia-detalhado.md) for paths and options.
+1. On **both computers**, install the matching Minecraft version, Forge, Fabric or NeoForge, and the corresponding LinceLink JAR from [GitHub Releases](https://github.com/Alexandre1116/LinceLink/releases). Place the JAR in the instance's `mods` folder. Fabric users must also install the matching Fabric API.
+2. For **Forge 1.20.1 and NeoForge 1.21.1**, LinceLink can download Tailcat v0.7.0 automatically on Windows and Linux x64/ARM64 when it is missing. Other builds and platforms need [Tailcat v0.7.0](https://github.com/tailscale/tailcat/releases/tag/v0.7.0) installed manually: put the executable in the instance's `tailcat` folder or on the system PATH. See the [detailed guide](docs/guia-detalhado.md) for paths and options.
 3. The **host** opens a singleplayer world, pauses the game, selects **LinceLink**, starts sharing and sends the copied invite to the guest.
 4. The **guest** opens **Multiplayer → LinceLink**, pastes the invite and joins. Keep the host's world open while playing.
 
@@ -49,7 +49,7 @@ Share the invite only with people you trust. Both sides should use the same mod 
 - Player ping and connection status (direct or DERP) in the Tab player list when the relevant information is available.
 - Interface text follows the Minecraft language selection using the game's translations; technical names remain unchanged.
 
-These extra features are currently specific to Forge 1.20.1. The other builds provide the core world-sharing flow. See the [detailed guide](docs/guia-detalhado.md) for connection states, language coverage and troubleshooting.
+Ping, route status and translated interface are currently specific to Forge 1.20.1. The other builds provide the core world-sharing flow. See the [detailed guide](docs/guia-detalhado.md) for connection states, language coverage and troubleshooting.
 
 ## Screenshots
 
@@ -72,8 +72,8 @@ O LinceLink permite partilhar um mundo singleplayer do Minecraft Java com um ami
 
 **Suporte experimental para servidor dedicado disponível em Forge 1.20.1.** As restantes versões para servidor estão previstas.
 
-1. Instala o Forge ou Fabric, o JAR correto das [releases](https://github.com/Alexandre1116/LinceLink/releases) e, no caso do Fabric, a [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api). Ambos os jogadores devem instalar os ficheiros na pasta `mods` da sua instância.
-2. No Forge 1.20.1, o Tailcat pode ser instalado automaticamente em Windows e Linux x64/ARM64. Nos restantes builds ou plataformas, instala manualmente o [Tailcat v0.7.0](https://github.com/tailscale/tailcat/releases/tag/v0.7.0), conforme o [guia detalhado](docs/guia-detalhado.md).
+1. Instala o Forge, Fabric ou NeoForge, o JAR correto das [releases](https://github.com/Alexandre1116/LinceLink/releases) e, no caso do Fabric, a [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api). Ambos os jogadores devem instalar os ficheiros na pasta `mods` da sua instância.
+2. No Forge 1.20.1 e NeoForge 1.21.1, o Tailcat pode ser instalado automaticamente em Windows e Linux x64/ARM64. Nos restantes builds ou plataformas, instala manualmente o [Tailcat v0.7.0](https://github.com/tailscale/tailcat/releases/tag/v0.7.0), conforme o [guia detalhado](docs/guia-detalhado.md).
 3. O anfitrião abre um mundo, pausa o jogo, escolhe **LinceLink**, inicia a partilha e envia o convite ao amigo.
 4. O convidado abre **Multiplayer → LinceLink**, cola o convite e entra. O anfitrião mantém o mundo aberto.
 

@@ -24,9 +24,10 @@ jobs:
           - {loader: fabric, minecraft: '1.18.2', java: '17', dependency: '306612(required)'}
           - {loader: fabric, minecraft: '1.20.1', java: '17', dependency: '306612(required)'}
           - {loader: fabric, minecraft: '1.21.1', java: '21', dependency: '306612(required)'}
+          - {loader: neoforge, minecraft: '1.21.1', java: '21'}
     steps:
       - name: Download the matching release asset
-        if: github.event.release.tag_name != 'v0.1.8' || (matrix.loader == 'forge' && matrix.minecraft == '1.20.1')
+        if: (github.event.release.tag_name != 'v0.1.8' || (matrix.loader == 'forge' && matrix.minecraft == '1.20.1')) && (github.event.release.tag_name != 'v0.1.9' || (matrix.loader == 'neoforge' && matrix.minecraft == '1.21.1'))
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
@@ -40,7 +41,7 @@ jobs:
           mkdir -p dist
           gh release download "$RELEASE_TAG" --pattern "lincelink-${LOADER}-${MINECRAFT}-${version}.jar" --dir dist
       - name: Send to CurseForge
-        if: github.event.release.tag_name != 'v0.1.8' || (matrix.loader == 'forge' && matrix.minecraft == '1.20.1')
+        if: (github.event.release.tag_name != 'v0.1.8' || (matrix.loader == 'forge' && matrix.minecraft == '1.20.1')) && (github.event.release.tag_name != 'v0.1.9' || (matrix.loader == 'neoforge' && matrix.minecraft == '1.21.1'))
         uses: Kira-NT/mc-publish@c23376546a97f5ba7984e94445da359459b14419 # v3
         with:
           curseforge-id: '1801410'

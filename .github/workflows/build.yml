@@ -1,6 +1,20 @@
 name: Build mods
 on: [push, pull_request, workflow_dispatch]
 jobs:
+  neoforge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - run: ./gradlew -p neoforge-1.21.1 build --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neoforge-1.21.1
+          path: neoforge-1.21.1/build/libs/*.jar
   modern:
     runs-on: ubuntu-latest
     strategy:

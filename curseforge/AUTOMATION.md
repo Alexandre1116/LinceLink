@@ -6,8 +6,10 @@ secret `CURSEFORGE_TOKEN`, containing a CurseForge author upload API token.
 Keep this token out of the repository and release notes.
 
 Create the release from a commit containing the workflow. Use a version tag
-such as `v0.1.8` and attach the nine JARs named
-`lincelink-<forge|fabric>-<minecraft version>-0.1.8.jar`. Missing files make
+such as `v0.2.0` and attach the ten JARs named
+`lincelink-<forge|fabric|neoforge>-<minecraft version>-0.2.0.jar`.
+The targeted releases v0.1.8 and v0.1.9 contain only their respective
+Forge 1.20.1 and NeoForge 1.21.1 JARs. Missing files make
 the corresponding job fail; the workflow does not build or attach the JARs.
 Use the release description as the changelog. GitHub prereleases are uploaded
 as CurseForge Alpha; other releases are uploaded as Release. Fabric files are

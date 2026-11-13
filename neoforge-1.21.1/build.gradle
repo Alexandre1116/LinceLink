@@ -1,0 +1,16 @@
+plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
+version = '0.1.9'
+group = 'pt.tailcatmod'
+base { archivesName = 'lincelink-neoforge-1.21.1' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+neoForge {
+    version = '21.1.265'
+    runs { client { client() } }
+    mods { tailcatmod { sourceSet sourceSets.main } }
+}
+sourceSets.main.java.srcDir '../common/src/main/java'
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+processResources {
+    from('../branding') { include 'lincelink.png' }
+    from('../LICENSE') { rename { 'LICENSE-LinceLink.txt' } }
+}
