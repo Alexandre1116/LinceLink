@@ -52,6 +52,8 @@ jobs:
           distribution: temurin
           java-version: '8'
       - run: cd forge-1.12.2 && ./gradlew build --no-daemon
+        env:
+          GRADLE_OPTS: -Xmx2g
       - uses: actions/upload-artifact@v4
         with:
           name: forge-1.12.2
