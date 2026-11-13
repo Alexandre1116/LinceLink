@@ -13,6 +13,7 @@ final class TailcatScreen extends GuiScreen {
     private GuiTextField input;
     private GuiButton action;
     private boolean busy;
+    private int request;
     private String status = "";
     TailcatScreen(GuiScreen parent, boolean host) { this.parent = parent; this.host = host; }
     @Override public void initGui() {
@@ -20,44 +21,56 @@ final class TailcatScreen extends GuiScreen {
         input = new GuiTextField(0, fontRenderer, x, y, 300, 20);
         input.setMaxStringLength(8192); input.setEnabled(!host); input.setFocused(!host);
         if (host && TailcatMod.invite != null) input.setText(TailcatMod.invite);
-        buttonList.add(action = new GuiButton(1, x, y + 28, 145, 20, host ? "Abrir mundo" : "Conectar"));
+        buttonList.add(action = new GuiButton(1, x, y + 28, 145, 20, host ? net.minecraft.client.resources.I18n.format("lincelink.ui.start") : net.minecraft.client.resources.I18n.format("lincelink.ui.connect")));
         action.enabled = !busy && !(host && TailcatMod.invite != null);
-        buttonList.add(new GuiButton(2, x + 155, y + 28, 145, 20, host ? "Copiar convite" : "Colar convite"));
-        buttonList.add(new GuiButton(3, x, y + 56, 300, 20, "Parar LinceLink"));
-        buttonList.add(new GuiButton(4, x, y + 84, 300, 20, "Voltar"));
+        buttonList.add(new GuiButton(2, x + 155, y + 28, 145, 20, host ? net.minecraft.client.resources.I18n.format("lincelink.ui.copy") : net.minecraft.client.resources.I18n.format("lincelink.ui.paste")));
+        buttonList.add(new GuiButton(3, x, y + 56, 300, 20, net.minecraft.client.resources.I18n.format("lincelink.ui.stop")));
+        buttonList.add(new GuiButton(4, x, y + 84, 300, 20, net.minecraft.client.resources.I18n.format("lincelink.ui.back")));
     }
     @Override protected void actionPerformed(GuiButton button) {
         if (button.id == 1) start();
         if (button.id == 2) { if (host) { if (TailcatMod.invite != null) setClipboardString(TailcatMod.invite); } else input.setText(getClipboardString()); }
-        if (button.id == 3) { TailcatMod.stop(); busy = false; input.setText(""); action.enabled = true; status = "Ligação terminada."; }
+        if (button.id == 3) { request++; TailcatMod.stop(); busy = false; input.setText(""); action.enabled = true; status = net.minecraft.client.resources.I18n.format("lincelink.ui.stopped_short"); }
         if (button.id == 4) back();
     }
-    private void back() { if (busy && !host) TailcatMod.stop(); mc.displayGuiScreen(parent); }
+    private void back() { if (busy) { request++; if (!host) TailcatMod.stop(); busy = false; } mc.displayGuiScreen(parent); }
     private void start() {
+        if (busy) return;
+        try { if (!host) Invite.parse(input.getText(), "1.12.2"); }
+        catch (Exception e) { status = net.minecraft.client.resources.I18n.format("lincelink.ui.error") + " " + e.getMessage(); return; }
+        busy = true; action.enabled = false; status = net.minecraft.client.resources.I18n.format("lincelink.ui.preparing");
+        int token = ++request;
+        TailcatInstaller.ensure(mc.mcDataDir.toPath()).whenComplete((path, error) -> mc.addScheduledTask(() -> {
+            if (request != token) return;
+            if (error != null) { busy = false; action.enabled = true; status = net.minecraft.client.resources.I18n.format("lincelink.ui.error") + " " + error.getMessage(); }
+            else openTunnel();
+        }));
+    }
+    private void openTunnel() {
         try {
             String address; int port;
             if (host) {
                 IntegratedServer server = mc.getIntegratedServer();
-                if (server == null) throw new IllegalStateException("Abre primeiro um mundo.");
+                if (server == null) throw new IllegalStateException(net.minecraft.client.resources.I18n.format("lincelink.ui.need_world_short"));
                 if (!server.getPublic() && server.shareToLAN(server.getWorld(0).getWorldInfo().getGameType(), false) == null)
-                    throw new IllegalStateException("Falha ao abrir o servidor LAN.");
+                    throw new IllegalStateException(net.minecraft.client.resources.I18n.format("lincelink.ui.lan_failed_short"));
                 port = server.getServerPort(); address = "";
             } else { Invite invite = Invite.parse(input.getText(), "1.12.2"); address = invite.address(); port = invite.port(); }
             TailcatMod.stop();
             Tunnel session = new Tunnel(); TailcatMod.tunnel = session; TailcatMod.hosting = host;
-            busy = true; action.enabled = false; status = "A iniciar LinceLink…";
+            busy = true; action.enabled = false; status = net.minecraft.client.resources.I18n.format("lincelink.ui.starting");
             session.start(mc.mcDataDir.toPath(), host, address, port).whenComplete((value, error) -> mc.addScheduledTask(() -> {
                 if (TailcatMod.tunnel != session) return;
                 busy = false;
-                if (error != null) { TailcatMod.stop(); action.enabled = true; status = "Falha: " + error.getMessage(); }
-                else if (host) { TailcatMod.invite = new Invite("1.12.2", value, port).encode(); input.setText(TailcatMod.invite); status = "Mundo aberto. Copia e envia o convite."; }
+                if (error != null) { TailcatMod.stop(); action.enabled = true; status = net.minecraft.client.resources.I18n.format("lincelink.ui.error") + " " + error.getMessage(); }
+                else if (host) { TailcatMod.invite = new Invite("1.12.2", value, port).encode(); input.setText(TailcatMod.invite); status = net.minecraft.client.resources.I18n.format("lincelink.ui.opened_short"); }
                 else mc.displayGuiScreen(new GuiConnecting(parent, mc, new ServerData("LinceLink", "127.0.0.1:" + value, false)));
             }));
-        } catch (Exception e) { TailcatMod.stop(); busy = false; action.enabled = true; status = "Falha: " + e.getMessage(); }
+        } catch (Exception e) { TailcatMod.stop(); busy = false; action.enabled = true; status = net.minecraft.client.resources.I18n.format("lincelink.ui.error") + " " + e.getMessage(); }
     }
     @Override public void drawScreen(int mouseX, int mouseY, float delta) {
         drawDefaultBackground(); input.drawTextBox(); super.drawScreen(mouseX, mouseY, delta);
-        drawCenteredString(fontRenderer, host ? "Abrir para LinceLink" : "Conectar com LinceLink", width / 2, height / 2 - 70, 0xFFFFFF);
+        drawCenteredString(fontRenderer, host ? net.minecraft.client.resources.I18n.format("lincelink.ui.host") : net.minecraft.client.resources.I18n.format("lincelink.ui.join"), width / 2, height / 2 - 70, 0xFFFFFF);
         fontRenderer.drawSplitString(status, width / 2 - 150, height / 2 + 72, 300, 0xFFFFFF);
     }
     @Override protected void keyTyped(char ch, int key) throws IOException { if (key == 1) back(); else input.textboxKeyTyped(ch, key); }

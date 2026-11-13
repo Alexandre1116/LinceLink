@@ -8,19 +8,19 @@ Mod cliente para partilhar um mundo Minecraft Java através do Tailcat. O anfitr
 
 LinceLink é o nome do projeto; Tailcat v0.7.0 continua a ser o transporte utilizado.
 
-O projeto tem nove módulos: Forge 1.12.2 e Fabric/Forge para 1.16.5, 1.18.2, 1.20.1 e 1.21.1. Consulta [a matriz de dependências](compatibilidade.md).
+O projeto tem dez módulos: Forge 1.12.2 e Fabric/Forge para 1.16.5, 1.18.2, 1.20.1 e 1.21.1, mais NeoForge 1.21.1. Consulta [a matriz de dependências](compatibilidade.md).
 
-O transporte foi validado com dois processos reais do Tailcat v0.7.0 e um round trip TCP, incluindo execução do núcleo em Java 8. A versão Forge 1.20.1 foi testada em jogo pelo proprietário com um amigo. Os restantes builds e cenários de rede ainda precisam de mais testes; os builds são experimentais.
+O transporte foi validado com dois processos reais do Tailcat v0.7.0 e um round trip TCP, incluindo execução do núcleo em Java 8. Foram também feitos checks dentro do Minecraft em builds selecionados. A ligação com dois clientes Minecraft não foi testada nesta versão; o proprietário planeia fazê-lo com amigos. Consulta as [notas de validação](validation-working.md) para os resultados por loader.
 
 Versões intermédias e posteriores a 1.21.1 não estão implementadas. Usa sempre o JAR correspondente à versão exata do Minecraft e ao loader.
 
 ## Instalação
 
-**Forge 1.20.1, mod 0.1.2+:** basta instalar o JAR. No primeiro arranque, o mod procura Tailcat na pasta da instância e no PATH; se faltar, descarrega a versão oficial v0.7.0 para `tailcat/`. A instalação corre em segundo plano e o ecrã Tailcat mostra o progresso. Não precisas do ZIP nem de instalar Tailcat manualmente nesta versão. É necessária Internet para o primeiro download.
+**Todos os builds LinceLink 0.2.0:** instala o JAR correspondente. Ao iniciar uma ligação, o mod procura Tailcat na pasta da instância e no PATH; se faltar, descarrega a versão oficial v0.7.0 para `tailcat/`. A instalação corre em segundo plano e o ecrã LinceLink mostra o progresso. É necessária Internet para o primeiro download.
 
 A instalação automática suporta Windows x64/ARM64 e Linux x64/ARM64. Em macOS ou outra arquitetura, instala Tailcat manualmente. O download é verificado com SHA-256 fixo; o executável existente não é atualizado nem substituído. Uma falha de download não impede abrir o Minecraft: o botão Abrir/Conectar volta a tentar. Voltar/Parar durante a instalação cancela a abertura do túnel; o download em segundo plano pode terminar para ficar disponível na próxima tentativa.
 
-**Outros builds e versões anteriores:** segue a instalação manual abaixo.
+**macOS e arquiteturas não suportadas:** instala Tailcat manualmente como descrito abaixo.
 
 Nos dois computadores:
 
@@ -28,7 +28,7 @@ Nos dois computadores:
 2. Copia o JAR do mod correspondente ao loader para a pasta `mods` da instância. Desde o build 0.1.6, o nome do JAR começa por `lincelink-`; remove o JAR antigo antes de instalar o novo.
 3. Obtém o **Tailcat v0.7.0** oficial em https://github.com/tailscale/tailcat/releases/tag/v0.7.0 . Extrai o executável e coloca-o em `<pasta da instância>/tailcat/tailcat` (Linux/macOS) ou `<pasta da instância>/tailcat/tailcat.exe` (Windows). Em Unix, torna-o executável com `chmod +x`. Também pode estar no PATH, ou ser indicado por `-Dtailcat.executable=/caminho/absoluto/tailcat` nos argumentos Java.
 
-O executável não está incluído nos JARs. Só Forge 1.20.1 a partir do mod 0.1.2 o descarrega automaticamente. Não precisas de conta Tailscale. LinceLink não é um projeto oficial da Tailscale.
+O executável não está incluído nos JARs. A instalação automática suporta Windows e Linux x64/ARM64; noutros sistemas operativos, usa a instalação manual. Não precisas de conta Tailscale. LinceLink não é um projeto oficial da Tailscale.
 
 ## Utilização
 
@@ -64,11 +64,11 @@ Os pares sem o canal de estados continuam a poder ligar, mas os dados de percurs
 
 ## Idiomas
 
-O build **Forge 1.20.1 / mod 0.1.6** acompanha automaticamente o idioma escolhido em **Opções → Idioma** do Minecraft. Usa as traduções nativas do jogo para os menus, botões, progresso, erros e estados do Tab. A auditoria dos assets oficiais verificou as 24 chaves utilizadas nos **145 idiomas** do seletor 1.20.1, incluindo os idiomas especiais e os escritos da direita para a esquerda.
+O build **Forge 1.20.1** acompanha automaticamente o idioma escolhido em **Opções → Idioma** do Minecraft. Usa as traduções nativas do jogo para os menus, botões, progresso, erros e estados do Tab. A auditoria dos assets oficiais verificou as 24 chaves utilizadas nos **145 idiomas** do seletor 1.20.1, incluindo os idiomas especiais e os escritos da direita para a esquerda.
 
 Os nomes dos botões seguem agora os do próprio Minecraft: o botão do anfitrião tem a marca LinceLink e o texto nativo de abrir em LAN; o convidado tem LinceLink e o texto nativo de entrar no servidor. O botão de colar usa `Ctrl+V` ou `⌘V` em macOS; também podes usar o atalho diretamente no campo. O progresso usa os textos nativos de preparação, download, extração e conclusão.
 
-LinceLink, Tailcat, DERP, unidades técnicas, atalhos e o código do convite mantêm-se como identificadores. Os detalhes técnicos ficam no `latest.log`; as mensagens apresentadas no ecrã são traduzidas. Este suporte de idiomas aplica-se ao build Forge 1.20.1; os builds antigos continuam com a interface anterior.
+Nos restantes builds, a interface está traduzida para inglês e português; nos outros idiomas usa inglês. LinceLink, Tailcat, DERP, unidades técnicas, atalhos e o código do convite mantêm-se como identificadores. Os detalhes técnicos ficam no `latest.log`; as mensagens apresentadas no ecrã são traduzidas.
 
 Ver [detalhes e verificação dos idiomas](idiomas.md) e [relatório dos 145 idiomas](idiomas.json). A auditoria confirma cobertura das chaves e argumentos, não uma inspeção visual de cada idioma dentro do jogo.
 

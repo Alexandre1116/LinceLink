@@ -1,0 +1,22 @@
+{
+  "lincelink.ui.host": "Open with LinceLink",
+  "lincelink.ui.join": "Connect with LinceLink",
+  "lincelink.ui.invite": "LinceLink invite",
+  "lincelink.ui.start": "Open world",
+  "lincelink.ui.connect": "Connect",
+  "lincelink.ui.copy": "Copy invite",
+  "lincelink.ui.paste": "Paste invite",
+  "lincelink.ui.stop": "Stop LinceLink",
+  "lincelink.ui.back": "Back",
+  "lincelink.ui.stopped": "LinceLink connection stopped.",
+  "lincelink.ui.stopped_short": "Connection stopped.",
+  "lincelink.ui.error": "Error:",
+  "lincelink.ui.preparing": "Preparing Tailcat…",
+  "lincelink.ui.starting": "Starting LinceLink…",
+  "lincelink.ui.opened": "World open. Copy the invite and send it to your friend.",
+  "lincelink.ui.opened_short": "World open. Copy and share the invite.",
+  "lincelink.ui.need_world": "Open a singleplayer world first.",
+  "lincelink.ui.need_world_short": "Open a world first.",
+  "lincelink.ui.lan_failed": "Could not open the LAN server.",
+  "lincelink.ui.lan_failed_short": "Failed to open the LAN server."
+}

@@ -1,5 +1,5 @@
 plugins { id 'fabric-loom' }
-version = '0.1.7'
+version = '0.2.0'
 group = 'pt.tailcatmod'
 base { archivesName = 'lincelink-fabric-1.20.1' }
 repositories { mavenCentral() }

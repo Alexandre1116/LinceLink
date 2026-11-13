@@ -1,3 +1,21 @@
+# LinceLink 0.2.0 — Release
+
+- Added automatic Tailcat v0.7.0 installation to all supported builds on
+  Windows and Linux x64/ARM64. Installation runs on demand, verifies the
+  downloaded archive and can be cancelled before the tunnel starts.
+- Added English and Portuguese interface text to the previously untranslated
+  Fabric and Forge builds. Forge 1.20.1 continues to use Minecraft's native
+  translations for 145 languages; other locales on the new translations fall
+  back to English.
+- Corrected the Fabric 1.16.5 Fabric API dependency identifier.
+- Added NeoForge 1.21.1 to the supported downloads.
+- Retained Forge 1.20.1 commands, Tab latency, Direct/DERP status and native
+  language support.
+
+The validation notes list checked configurations and untested flows. A
+two-client Minecraft connection was intentionally not tested in this release;
+the project owner plans to test it with friends.
+
 # LinceLink 0.1.7 — Alpha
 
 - Added the existing CurseForge project URL, author, source and issue links to the mod metadata.

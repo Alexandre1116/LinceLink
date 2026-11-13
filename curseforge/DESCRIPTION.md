@@ -1,60 +1,119 @@
 # LinceLink
 
-**Open your singleplayer world to friends with an invite code.**
+**Share a Minecraft Java singleplayer world with friends using one invite.**
 
-LinceLink adds a world-sharing screen to the pause menu and an invite connection screen to Multiplayer. The host opens a world, copies one code and sends it to a friend. The friend pastes the code to connect to that world.
+LinceLink adds a host screen to the pause menu and an invite screen to
+Multiplayer. The host opens a world, copies an invitation and sends it to a
+friend. The friend pastes the invitation to connect. Both players need the
+same Minecraft version, loader and LinceLink file. No Tailscale account or
+manual router configuration is required.
 
-Connections use Tailcat's encrypted transport. Tailcat attempts a direct connection between players and uses a DERP relay when a direct path is unavailable. No Tailscale account or manual router port forwarding is needed. The host must keep the game and world open.
+## Features
 
-## Getting started
+- Uses the separate Tailcat v0.7.0 transport for encrypted connectivity.
+- Automatically installs Tailcat on Windows and Linux x64/ARM64 when needed.
+- Forge 1.20.1 adds `/lincelink start`, `invite`, `status` and `stop`, plus
+  player latency and Direct/DERP status in the Tab list.
+- Forge 1.20.1 uses Minecraft's native translations for all 145 languages.
+  Other builds include English and Portuguese UI text; other languages fall
+  back to English.
+- Dedicated-server commands are experimental and available on Forge 1.20.1.
 
-1. Install the LinceLink file matching your exact Minecraft version and loader on both computers. Fabric builds also require Fabric API.
-2. Host: open a singleplayer world, press Esc and select **LinceLink**. Start sharing the world and copy the invitation.
-3. Guest: open Multiplayer, select **LinceLink**, paste the invitation and join.
-4. Keep the host's world open. Use the LinceLink disconnect button or leave the world to stop the tunnel.
+## Supported versions
 
-Use matching Minecraft and LinceLink versions. Worlds using content mods also need compatible content mods on both computers. Install LinceLink on the players' clients; it is designed for the integrated singleplayer server, not installation on a dedicated server.
+- **Forge:** 1.12.2, 1.16.5, 1.18.2, 1.20.1, 1.21.1.
+- **Fabric:** 1.16.5, 1.18.2, 1.20.1, 1.21.1. Fabric API is required.
+- **NeoForge:** 1.21.1.
 
-## Available versions
+Choose the file that exactly matches your Minecraft version and loader. There is
+no universal JAR. See the [compatibility table](https://github.com/Alexandre1116/LinceLink/blob/main/docs/compatibilidade.md)
+for dependency versions and Java requirements.
 
-- **Forge:** 1.12.2, 1.16.5, 1.18.2, 1.20.1 and 1.21.1.
-- **Fabric:** 1.16.5, 1.18.2, 1.20.1 and 1.21.1.
+## Install and play
 
-Each download is for one exact game version and one loader. Select the appropriate file under Files.
+1. Install the matching Minecraft loader and LinceLink file on both computers.
+   Fabric players also need Fabric API.
+2. Open a singleplayer world, pause, choose **LinceLink**, start sharing and
+   send the copied invitation to your friend.
+3. The guest opens **Multiplayer → LinceLink**, pastes the invitation and
+   connects. Keep the host's world open.
 
-## Extra features in Forge 1.20.1
+The invitation grants access to the world. Share it only with people you
+intend to invite. LinceLink exposes only the Minecraft world connection, not
+the rest of the host's network. The game and world must remain open while
+playing.
 
-- Automatically installs Tailcat v0.7.0 on first launch if it is missing, using the official upstream release and a pinned SHA-256 check.
-- Shows each player's Minecraft latency in milliseconds in the Tab list.
-- Shows the host-reported **Direct / DERP** route beside latency. Both host and guests need a build with route reporting. Local and unknown states are shown separately.
-- Uses Minecraft's native interface translations for all 145 languages in the 1.20.1 language selector.
+## Validation
 
-These extra features are currently specific to the **Forge 1.20.1** build. Other downloads provide basic world sharing and invite connection, and require a manually installed Tailcat executable.
+This is the first normal release, not an Alpha or Beta file. Focused in-game
+checks covered selected builds; see the [validation notes](https://github.com/Alexandre1116/LinceLink/blob/main/docs/validation-working.md)
+for tested configurations and paths that remain unverified. A connection using
+two Minecraft clients was not part of this release's testing; the project
+owner plans to test it with friends.
 
-## Tailcat component and operating systems
-
-LinceLink launches the separate **Tailcat v0.7.0** executable for the tunnel. The executable is not bundled in these JARs. Forge 1.20.1 downloads it from the official Tailscale Tailcat GitHub release, when missing, into the instance's `tailcat` directory. Automatic installation supports Windows and Linux on x64 and ARM64. Internet access is required for this initial installation and for connection bootstrap/relay services.
-
-For other builds or operating systems, install the matching Tailcat v0.7.0 executable in the instance's `tailcat` folder, make it executable on Unix, or place it on PATH. The project documentation explains manual installation and configuration. An existing installation is reused rather than silently updated.
-
-The invitation grants access to the world. Share it only with the players you want to invite. Only the world's game port is exposed by this mod; it does not share the rest of your network. Relay availability and connection quality depend on the network and upstream services.
-
-## Alpha status
-
-These downloads are **alpha builds**. Builds, automated tests and real TCP tunnel tests have passed, including direct and forced-DERP transport tests. Complete testing of all game versions, operating systems, graphical layouts and two-client route-reporting sessions remains pending. Report problems with your Minecraft version, loader, LinceLink version and `latest.log`; remove invitation codes before sharing logs or screenshots.
-
-LinceLink is open source under MIT. Its logo was provided by the project owner. Tailcat is a separate project by Tailscale Inc. and contributors, licensed under BSD-3-Clause. LinceLink is not an official Tailscale or Mojang product.
-
-## Português
-
-O LinceLink permite abrir um mundo singleplayer para amigos através de um código de convite. O anfitrião abre o mundo, escolhe **LinceLink** no menu de pausa e envia o código; o convidado cola-o no ecrã LinceLink do Multiplayer.
-
-Instala o JAR correspondente à versão exata do Minecraft e ao loader nos dois computadores. Os builds Fabric precisam também de Fabric API. O anfitrião deve manter o mundo e o jogo abertos.
-
-No **Forge 1.20.1**, inclui instalação automática do Tailcat, ping no Tab, estado de ligação direta/DERP e interface nos 145 idiomas do Minecraft 1.20.1. Os restantes builds oferecem a partilha base e precisam do executável Tailcat instalado manualmente. A instalação automática suporta Windows/Linux x64 e ARM64.
-
-Os ficheiros são **alpha**: ainda há testes dentro do jogo e entre sistemas operativos por concluir. Os convites são privados; partilha-os apenas com os jogadores convidados.
+Tailcat is a separate project by Tailscale and contributors. LinceLink is not
+an official Tailscale or Mojang product. Licensed under MIT.
 
 ---
 
-[Source code and documentation](https://github.com/Alexandre1116/LinceLink) · [Report an issue](https://github.com/Alexandre1116/LinceLink/issues)
+## Português
+
+**Partilha um mundo singleplayer de Minecraft Java com os teus amigos usando
+um convite.**
+
+O LinceLink adiciona um ecrã de anfitrião ao menu de pausa e um ecrã para
+convites ao Multiplayer. O anfitrião abre um mundo, copia o convite e envia-o
+a um amigo. O amigo cola-o para ligar. Ambos precisam da mesma versão do
+Minecraft, loader e ficheiro LinceLink. Não é necessária uma conta Tailscale
+nem configurar o router.
+
+### Funcionalidades
+
+- Usa o Tailcat v0.7.0, um transporte separado com ligação encriptada.
+- Instala automaticamente o Tailcat em Windows e Linux x64/ARM64 se for
+  necessário.
+- Forge 1.20.1 inclui `/lincelink start`, `invite`, `status` e `stop`, ping dos
+  jogadores e estado Direto/DERP na lista Tab.
+- Forge 1.20.1 usa as traduções nativas do Minecraft para as 145 línguas. Os
+  restantes builds incluem interface em inglês e português; outros idiomas
+  usam inglês.
+- Os comandos para servidores dedicados são experimentais e estão disponíveis
+  em Forge 1.20.1.
+
+### Versões suportadas
+
+- **Forge:** 1.12.2, 1.16.5, 1.18.2, 1.20.1 e 1.21.1.
+- **Fabric:** 1.16.5, 1.18.2, 1.20.1 e 1.21.1. Requer Fabric API.
+- **NeoForge:** 1.21.1.
+
+Escolhe o ficheiro correspondente à versão exata do Minecraft e ao loader.
+Não existe um JAR universal.
+
+### Instalação e utilização
+
+1. Instala o loader correto e o ficheiro LinceLink nos dois computadores. No
+   Fabric, instala também Fabric API.
+2. Abre um mundo singleplayer, pausa, escolhe **LinceLink**, inicia a partilha
+   e envia o convite copiado ao teu amigo.
+3. O convidado abre **Multiplayer → LinceLink**, cola o convite e liga. Mantém
+   o mundo do anfitrião aberto.
+
+O convite dá acesso ao mundo; partilha-o apenas com quem queres convidar. O
+LinceLink não partilha o resto da rede do anfitrião. O jogo e o mundo têm de
+ficar abertos durante a sessão.
+
+Esta é a primeira versão normal, não Alpha nem Beta. Foram feitos testes
+focados dentro do jogo em builds selecionados; consulta as
+[notas de validação](https://github.com/Alexandre1116/LinceLink/blob/main/docs/validation-working.md)
+para ver as configurações testadas e os percursos por verificar. A ligação
+com dois clientes Minecraft não fez parte dos testes desta versão; o
+proprietário planeia fazê-la com amigos.
+
+O Tailcat é um projeto separado da Tailscale e dos seus colaboradores. O
+LinceLink não é um produto oficial da Tailscale ou da Mojang. Licença MIT.
+
+---
+
+[Source code](https://github.com/Alexandre1116/LinceLink) ·
+[Report an issue](https://github.com/Alexandre1116/LinceLink/issues) ·
+[Buy Me a Coffee](https://buymeacoffee.com/alexandre1116)

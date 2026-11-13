@@ -1,5 +1,5 @@
 plugins { id 'net.minecraftforge.gradle' version '6.0.54' }
-version = '0.1.7'
+version = '0.2.0'
 group = 'pt.tailcatmod'
 base { archivesName = 'lincelink-forge-1.18.2' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)

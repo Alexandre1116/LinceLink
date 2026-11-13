@@ -3,7 +3,7 @@
     "modid": "tailcatmod",
     "name": "LinceLink",
     "description": "Share singleplayer worlds with friends using invite codes and encrypted Tailcat connections.",
-    "version": "0.1.7",
+    "version": "0.2.0",
     "mcversion": "1.12.2",
     "clientSideOnly": true,
     "logoFile": "lincelink.png",

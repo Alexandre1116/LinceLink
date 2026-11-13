@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tailcatmod",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "name": "LinceLink",
   "description": "Share singleplayer worlds with friends using invite codes and encrypted Tailcat connections.",
   "environment": "client",

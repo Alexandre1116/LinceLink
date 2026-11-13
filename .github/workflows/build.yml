@@ -1,5 +1,7 @@
 name: Build mods
-on: [push, pull_request, workflow_dispatch]
+on:
+  pull_request:
+  workflow_dispatch:
 jobs:
   neoforge:
     runs-on: ubuntu-latest
