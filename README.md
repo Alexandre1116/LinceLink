@@ -18,7 +18,7 @@
 
 LinceLink is an experimental client mod that uses [Tailcat](https://github.com/tailscale/tailcat) to connect players. The host opens a singleplayer world and shares an invite; the guest pastes it into the multiplayer menu. Both players need the matching Minecraft version and LinceLink build. No Tailscale account is required.
 
-**Server-side versions: Coming soon.** The available builds are client-side.
+**Dedicated server support is experimental and available for Forge 1.20.1.** Other server-side versions are coming soon.
 
 ## Supported versions
 
@@ -70,7 +70,7 @@ These screenshots show the Forge 1.20.1 interface and a multiplayer test.
 
 O LinceLink permite partilhar um mundo singleplayer do Minecraft Java com um amigo através de um convite, usando o Tailcat. Os dois jogadores precisam da mesma versão do Minecraft e do build correspondente do LinceLink. Não é necessária uma conta Tailscale.
 
-**Versões para servidor: em breve.** Os builds disponíveis são para o cliente.
+**Suporte experimental para servidor dedicado disponível em Forge 1.20.1.** As restantes versões para servidor estão previstas.
 
 1. Instala o Forge ou Fabric, o JAR correto das [releases](https://github.com/Alexandre1116/LinceLink/releases) e, no caso do Fabric, a [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api). Ambos os jogadores devem instalar os ficheiros na pasta `mods` da sua instância.
 2. No Forge 1.20.1, o Tailcat pode ser instalado automaticamente em Windows e Linux x64/ARM64. Nos restantes builds ou plataformas, instala manualmente o [Tailcat v0.7.0](https://github.com/tailscale/tailcat/releases/tag/v0.7.0), conforme o [guia detalhado](docs/guia-detalhado.md).
@@ -80,6 +80,10 @@ O LinceLink permite partilhar um mundo singleplayer do Minecraft Java com um ami
 A tabela acima mostra as versões disponíveis. O Forge 1.20.1 inclui também ping e estado de ligação no Tab e interface adaptada ao idioma do Minecraft. Os builds são experimentais: o proprietário testou o Forge 1.20.1 com um amigo; as restantes versões e condições de rede precisam de mais testes.
 
 ## Development and publishing
+
+### Experimental commands (Forge 1.20.1)
+
+In Forge 1.20.1 version 0.1.8, the singleplayer world owner or a server operator can use `/lincelink start` to open access, `/lincelink invite` to display a clickable invite, `/lincelink status` to check the tunnel and `/lincelink stop` to close it. On a dedicated server these commands are also available from the console without the slash. Invitations are private: share them only with intended players. Starting in singleplayer opens the built-in LAN server; stopping the tunnel does not close LAN until the world is exited. Dedicated server support is experimental and still needs in-game testing.
 
 Build instructions, troubleshooting and transport details are in the [detailed guide](docs/guia-detalhado.md). The [CurseForge automation guide](curseforge/AUTOMATION.md) explains how GitHub releases are sent to CurseForge. Bugs and feedback are welcome through [GitHub Issues](https://github.com/Alexandre1116/LinceLink/issues).
 
