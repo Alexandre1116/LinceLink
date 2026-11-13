@@ -1,13 +1,14 @@
 # Release validation
 
-This is an evidence log for the current local candidate. It does not claim that
-every game version or operating system has passed an in-game test.
+This is an evidence log for LinceLink 0.2.0, the normal release. It does not
+claim that every game version or operating system has passed an in-game test.
 
-- **Current candidate 0.2.0:** all ten modules compiled locally. The CurseForge
-  packaging validator accepted ten JARs, including loader/game metadata,
-  licenses, logo assets, Java class versions, and archive contents. This is a
-  build/package check, not an in-game compatibility check. The normal-release
-  kit is prepared locally and has not been published.
+- **Release 0.2.0:** all ten modules compiled locally. The CurseForge packaging
+  validator accepted ten JARs, including loader/game metadata, licenses, logo
+  assets, Java class versions, and archive contents. All ten JARs are attached
+  to the normal GitHub release, and the CurseForge upload workflow succeeded
+  for all ten. This is a build/package/upload check, not an in-game
+  compatibility check; CurseForge moderation status is separate.
 - **NeoForge 1.21.1 / 0.1.9:** on Windows with NeoForge 21.1.266, the mod
   loaded, opened a singleplayer world, installed Tailcat, and created and
   copied an invitation. A second client was not used.
